@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passerelle Consulting — Technical Programmatic Consulting</title>
+<title>Passerelle Consulting — Conseil technique en programmatique</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -52,6 +52,22 @@
   .navlinks a{ font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft); transition:color .15s; }
   .navlinks a:hover{ color:var(--blue-bright); }
   @media (max-width:720px){ .navlinks{ display:none; } }
+
+  /* LANGUAGE TOGGLE */
+  .nav-right{ display:flex; align-items:center; gap:28px; }
+  .lang{
+    display:flex; align-items:center; border:1px solid var(--line);
+    border-radius:var(--radius); overflow:hidden; background:var(--bg-panel);
+  }
+  .lang button{
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.06em;
+    padding:6px 11px; border:none; background:transparent; color:var(--ink-soft);
+    cursor:pointer; transition: background .15s, color .15s; line-height:1.4;
+  }
+  .lang button + button{ border-left:1px solid var(--line); }
+  .lang button:hover{ color:var(--blue-bright); }
+  .lang button[aria-pressed="true"]{ background:var(--ink); color:#fff; }
+  .lang button[aria-pressed="true"]:hover{ color:#fff; }
 
   /* HERO */
   .hero{ padding: 92px 0 40px; }
@@ -154,36 +170,42 @@
 <header>
   <div class="wrap nav">
     <a href="#" class="brand"><span class="brand-dot"></span>PASSERELLE CONSULTING</a>
-    <ul class="navlinks">
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#pedigree">Track record</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="navlinks">
+        <li><a href="#approach" data-i18n="nav.approach">Approche</a></li>
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#pedigree" data-i18n="nav.pedigree">Références</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang" role="group" data-i18n-label="lang.aria" aria-label="Choix de la langue">
+        <button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </div>
   </div>
 </header>
 
 <main>
   <section class="hero" style="border-top:none; padding-top:92px;">
     <div class="wrap">
-      <div class="eyebrow">Technical programmatic consulting · Paris</div>
-      <h1>Your media team knows <em>what</em> to buy.<br>We build <em>how</em> it works.</h1>
-      <p class="hero-sub">Independent technical consulting for brands bringing programmatic advertising in-house — the engineering underneath the media plan: DSP/SSP integration, first-party data activation, and privacy-compliant identity infrastructure.</p>
+      <div class="eyebrow" data-i18n="hero.eyebrow">Conseil technique en programmatique · Paris</div>
+      <h1 data-i18n-html="hero.h1">Vos équipes média savent <em>quoi</em> acheter.<br>Nous construisons <em>comment</em> ça marche.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Conseil technique indépendant pour les marques qui internalisent leur achat programmatique — l'ingénierie sous le plan média : intégration DSP/SSP, activation des données first-party et infrastructure d'identité conforme aux exigences de confidentialité.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Start a conversation</a>
-        <a href="#services" class="btn btn-ghost">See what's in scope</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Démarrer la conversation</a>
+        <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Voir le périmètre</a>
       </div>
 
       <div class="diagram">
         <div class="diagram-label">
-          <span>fig. 1 — where this practice sits</span>
-          <span>media plan → engineering layer → ad stack</span>
+          <span data-i18n="fig1.left">fig. 1 — le positionnement du cabinet</span>
+          <span data-i18n="fig1.right">plan média → couche d'ingénierie → ad stack</span>
         </div>
-        <svg viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing the consultancy positioned between a brand's marketing team and its DSP, SSP, CMP, and identity infrastructure">
+        <svg viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-label="fig1.alt" aria-label="Schéma montrant le cabinet positionné entre l'équipe marketing d'une marque et son infrastructure DSP, SSP, CMP et identité">
           <!-- BRAND node -->
           <rect x="30" y="98" width="150" height="64" rx="2" class="node-box hi"/>
-          <text x="105" y="124" text-anchor="middle" class="node-label">BRAND / IN-HOUSE</text>
-          <text x="105" y="140" text-anchor="middle" class="node-sub">marketing team</text>
+          <text x="105" y="124" text-anchor="middle" class="node-label" data-i18n="fig1.brand">MARQUE / INTERNE</text>
+          <text x="105" y="140" text-anchor="middle" class="node-sub" data-i18n="fig1.brandSub">équipe marketing</text>
 
           <!-- trace to center -->
           <path d="M180,130 L 400,130" class="trace-active"/>
@@ -192,8 +214,8 @@
           <!-- CENTER engineering layer -->
           <rect x="400" y="70" width="240" height="120" rx="2" class="node-box hi" stroke-width="1.6"/>
           <text x="520" y="118" text-anchor="middle" class="node-label" font-weight="500">PASSERELLE</text>
-          <text x="520" y="136" text-anchor="middle" class="node-sub">integration · compliance</text>
-          <text x="520" y="150" text-anchor="middle" class="node-sub">data activation</text>
+          <text x="520" y="136" text-anchor="middle" class="node-sub" data-i18n="fig1.core1">intégration · conformité</text>
+          <text x="520" y="150" text-anchor="middle" class="node-sub" data-i18n="fig1.core2">activation des données</text>
 
           <!-- traces out to 4 nodes -->
           <path d="M640,100 L 860,40" class="trace-line"/>
@@ -208,10 +230,10 @@
           <text x="935" y="105" text-anchor="middle" class="node-label">SSP</text>
 
           <rect x="860" y="138" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="165" text-anchor="middle" class="node-label">CMP / privacy</text>
+          <text x="935" y="165" text-anchor="middle" class="node-label" data-i18n="fig1.cmp">CMP / consentement</text>
 
           <rect x="860" y="198" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="225" text-anchor="middle" class="node-label">Identity / 1P data</text>
+          <text x="935" y="225" text-anchor="middle" class="node-label" data-i18n="fig1.identity">Identité / data 1P</text>
         </svg>
       </div>
     </div>
@@ -222,30 +244,30 @@
       <div class="section-head">
         <div>
           <div class="section-num mono">fig. 2</div>
-          <h2>Built on the infrastructure side, not the strategy deck</h2>
+          <h2 data-i18n="ped.h2">Construit côté infrastructure, pas côté slide de stratégie</h2>
         </div>
-        <p class="lede">Senior engineering roles across the supply side, demand side, and agentic advertising layer of programmatic — the parts of the stack most consultants only reference secondhand.</p>
+        <p class="lede" data-i18n="ped.lede">Des postes d'ingénierie senior côté supply, côté demand et sur la couche publicitaire agentique du programmatique — les parties de la stack que la plupart des consultants ne connaissent que de seconde main.</p>
       </div>
       <div class="pedigree-grid">
         <div class="ped-card">
           <div class="co">TripleLift</div>
-          <div class="role">Supply side</div>
-          <div class="desc">Native & video supply infrastructure, publisher-facing integration.</div>
+          <div class="role" data-i18n="ped.supply">Côté supply</div>
+          <div class="desc" data-i18n="ped.d1">Infrastructure supply native et vidéo, intégration côté éditeurs.</div>
         </div>
         <div class="ped-card">
           <div class="co">Martin DSP</div>
-          <div class="role">Demand side</div>
-          <div class="desc">Real-time bidding logic and demand-side platform engineering.</div>
+          <div class="role" data-i18n="ped.demand">Côté demand</div>
+          <div class="desc" data-i18n="ped.d2">Logique d'enchères en temps réel et ingénierie de plateforme d'achat.</div>
         </div>
         <div class="ped-card">
           <div class="co">PubMatic</div>
-          <div class="role">Supply side</div>
-          <div class="desc">Header bidding, exchange infrastructure at scale.</div>
+          <div class="role" data-i18n="ped.supply">Côté supply</div>
+          <div class="desc" data-i18n="ped.d3">Header bidding et infrastructure d'exchange à grande échelle.</div>
         </div>
         <div class="ped-card">
           <div class="co">Scope3</div>
-          <div class="role">Agentic advertising</div>
-          <div class="desc">Worked on Interchange — infrastructure for agentic, cross-platform advertising.</div>
+          <div class="role" data-i18n="ped.agentic">Publicité agentique</div>
+          <div class="desc" data-i18n="ped.d4">Travail sur Interchange — l'infrastructure de la publicité agentique multiplateforme.</div>
         </div>
       </div>
     </div>
@@ -256,40 +278,40 @@
       <div class="section-head">
         <div>
           <div class="section-num mono">fig. 3</div>
-          <h2>What's in scope</h2>
+          <h2 data-i18n="svc.h2">Périmètre d'intervention</h2>
         </div>
-        <p class="lede">Engaged where a brand needs engineering depth — not campaign management, not creative, not media strategy.</p>
+        <p class="lede" data-i18n="svc.lede">Mobilisé lorsqu'une marque a besoin de profondeur technique — pas de gestion de campagnes, pas de création, pas de stratégie média.</p>
       </div>
       <div class="services">
         <div class="svc">
-          <div class="tag">01 — setup</div>
-          <h3>Programmatic strategy &amp; technical setup</h3>
-          <p>DSP selection, trading desk architecture, and initial implementation for teams building in-house capability for the first time.</p>
+          <div class="tag" data-i18n="svc.t1">01 — mise en place</div>
+          <h3 data-i18n="svc.h1">Stratégie programmatique &amp; mise en place technique</h3>
+          <p data-i18n="svc.p1">Choix du DSP, architecture du trading desk et implémentation initiale pour les équipes qui internalisent pour la première fois.</p>
         </div>
         <div class="svc">
-          <div class="tag">02 — integration</div>
-          <h3>SSP/DSP integration</h3>
-          <p>Bidstream architecture review, header bidding configuration, connectivity across your supply and demand partners.</p>
+          <div class="tag" data-i18n="svc.t2">02 — intégration</div>
+          <h3 data-i18n="svc.h3b">Intégration SSP/DSP</h3>
+          <p data-i18n="svc.p2">Revue de l'architecture du bidstream, configuration du header bidding et connectivité avec vos partenaires supply et demand.</p>
         </div>
         <div class="svc">
-          <div class="tag">03 — compliance</div>
-          <h3>Privacy &amp; compliance engineering</h3>
-          <p>Technical implementation of GDPR/CNIL requirements, CMP integration, and cookieless identity migration.</p>
+          <div class="tag" data-i18n="svc.t3">03 — conformité</div>
+          <h3 data-i18n="svc.h3c">Ingénierie de la confidentialité &amp; conformité</h3>
+          <p data-i18n="svc.p3">Mise en œuvre technique des exigences RGPD/CNIL, intégration CMP et migration vers l'identité sans cookies.</p>
         </div>
         <div class="svc">
-          <div class="tag">04 — data</div>
-          <h3>First-party data activation</h3>
-          <p>Data layer audits and integration of first-party data into your DSP environment.</p>
+          <div class="tag" data-i18n="svc.t4">04 — données</div>
+          <h3 data-i18n="svc.h3d">Activation des données first-party</h3>
+          <p data-i18n="svc.p4">Audit de la couche de données et intégration de vos données first-party dans votre environnement DSP.</p>
         </div>
         <div class="svc">
-          <div class="tag">05 — enablement</div>
-          <h3>Team upskilling</h3>
-          <p>Structured technical training so your in-house team can own the stack after the engagement ends.</p>
+          <div class="tag" data-i18n="svc.t5">05 — montée en compétences</div>
+          <h3 data-i18n="svc.h3e">Montée en compétences des équipes</h3>
+          <p data-i18n="svc.p5">Formation technique structurée pour que votre équipe interne pilote la stack après la fin de la mission.</p>
         </div>
         <div class="svc">
-          <div class="tag">06 — advisory</div>
-          <h3>Ongoing technical advisory</h3>
-          <p>Ad hoc architecture reviews and build-vs-buy guidance as your in-house desk scales.</p>
+          <div class="tag" data-i18n="svc.t6">06 — conseil</div>
+          <h3 data-i18n="svc.h3f">Conseil technique continu</h3>
+          <p data-i18n="svc.p6">Revues d'architecture ponctuelles et arbitrages build-vs-buy à mesure que votre desk interne monte en charge.</p>
         </div>
       </div>
     </div>
@@ -300,19 +322,19 @@
       <div class="section-head">
         <div>
           <div class="section-num mono">fig. 4</div>
-          <h2>Why not just hire an agency?</h2>
+          <h2 data-i18n="app.h2">Pourquoi ne pas simplement passer par une agence ?</h2>
         </div>
       </div>
       <div class="approach">
         <div class="approach-col">
-          <div class="k">Agencies</div>
-          <h3>Bundle strategy with execution</h3>
-          <p>Full-service agencies plan, buy, and report on media — useful, but the technical layer underneath is usually opaque, and their incentive is to keep running your campaigns, not to hand you the keys.</p>
+          <div class="k" data-i18n="app.k1">Les agences</div>
+          <h3 data-i18n="app.h3a">Regroupent stratégie et exécution</h3>
+          <p data-i18n="app.p1">Les agences full-service planifient, achètent et reportent sur le média — utile, mais la couche technique en dessous reste généralement opaque, et leur intérêt est de continuer à piloter vos campagnes, pas de vous en confier les clés.</p>
         </div>
         <div class="approach-col hi">
           <div class="k">Passerelle Consulting</div>
-          <h3>Hands you the infrastructure, then leaves</h3>
-          <p>Engaged specifically to build technical capability inside your team — integration, compliance, data activation — with upskilling built in, so the engagement has a natural end point instead of a retainer that never closes.</p>
+          <h3 data-i18n="app.h3b">Vous transmet l'infrastructure, puis s'efface</h3>
+          <p data-i18n="app.p2">Mobilisé spécifiquement pour construire la capacité technique au sein de votre équipe — intégration, conformité, activation des données — avec la montée en compétences intégrée, pour que la mission ait un terme naturel plutôt qu'un forfait qui ne se referme jamais.</p>
         </div>
       </div>
     </div>
@@ -323,14 +345,14 @@
       <div class="section-head">
         <div>
           <div class="section-num mono">fig. 5</div>
-          <h2>Start a conversation</h2>
+          <h2 data-i18n="con.h2">Démarrer la conversation</h2>
         </div>
-        <p class="lede">Tell me a bit about where your programmatic setup stands today.</p>
+        <p class="lede" data-i18n="con.lede">Dites-m'en un peu plus sur l'état actuel de votre dispositif programmatique.</p>
       </div>
       <div>
-        <p style="color:var(--ink-soft); font-size:16px; max-width:46ch;">Reach out directly — I read every email myself and usually respond within a day.</p>
+        <p style="color:var(--ink-soft); font-size:16px; max-width:46ch;" data-i18n="con.p1">Écrivez-moi directement — je lis chaque e-mail moi-même et je réponds généralement sous 24 heures.</p>
         <p class="direct mono" style="margin-top:16px; font-size:22px;"><a href="mailto:hello@passerelleconsulting.com">hello@passerelleconsulting.com</a></p>
-        <p style="margin-top:24px; font-size:13px; color:var(--ink-soft); max-width:46ch;">Based in Paris. Working with brands across France and the EU — remote-friendly, on-site by arrangement.</p>
+        <p style="margin-top:24px; font-size:13px; color:var(--ink-soft); max-width:46ch;" data-i18n="con.p2">Basé à Paris. J'accompagne des marques en France et dans l'UE — à distance, sur site selon les besoins.</p>
       </div>
     </div>
   </section>
@@ -338,10 +360,125 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span>PASSERELLE CONSULTING — TECHNICAL PROGRAMMATIC CONSULTING</span>
+    <span data-i18n="foot.left">PASSERELLE CONSULTING — CONSEIL TECHNIQUE EN PROGRAMMATIQUE</span>
     <span>PARIS, FR</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  // French is the default language; English is the alternate.
+  var DEFAULT_LANG = 'fr';
+
+  var en = {
+    'lang.aria': 'Language selection',
+    'nav.approach': 'Approach',
+    'nav.services': 'Services',
+    'nav.pedigree': 'Track record',
+    'nav.contact': 'Contact',
+
+    'hero.eyebrow': 'Technical programmatic consulting · Paris',
+    'hero.h1': 'Your media team knows <em>what</em> to buy.<br>We build <em>how</em> it works.',
+    'hero.sub': "Independent technical consulting for brands bringing programmatic advertising in-house — the engineering underneath the media plan: DSP/SSP integration, first-party data activation, and privacy-compliant identity infrastructure.",
+    'hero.cta1': 'Start a conversation',
+    'hero.cta2': "See what's in scope",
+
+    'fig1.left': 'fig. 1 — where this practice sits',
+    'fig1.right': 'media plan → engineering layer → ad stack',
+    'fig1.alt': "Diagram showing the consultancy positioned between a brand's marketing team and its DSP, SSP, CMP, and identity infrastructure",
+    'fig1.brand': 'BRAND / IN-HOUSE',
+    'fig1.brandSub': 'marketing team',
+    'fig1.core1': 'integration · compliance',
+    'fig1.core2': 'data activation',
+    'fig1.cmp': 'CMP / privacy',
+    'fig1.identity': 'Identity / 1P data',
+
+    'ped.h2': 'Built on the infrastructure side, not the strategy deck',
+    'ped.lede': 'Senior engineering roles across the supply side, demand side, and agentic advertising layer of programmatic — the parts of the stack most consultants only reference secondhand.',
+    'ped.supply': 'Supply side',
+    'ped.demand': 'Demand side',
+    'ped.agentic': 'Agentic advertising',
+    'ped.d1': 'Native & video supply infrastructure, publisher-facing integration.',
+    'ped.d2': 'Real-time bidding logic and demand-side platform engineering.',
+    'ped.d3': 'Header bidding, exchange infrastructure at scale.',
+    'ped.d4': 'Worked on Interchange — infrastructure for agentic, cross-platform advertising.',
+
+    'svc.h2': "What's in scope",
+    'svc.lede': 'Engaged where a brand needs engineering depth — not campaign management, not creative, not media strategy.',
+    'svc.t1': '01 — setup',
+    'svc.h1': 'Programmatic strategy & technical setup',
+    'svc.p1': 'DSP selection, trading desk architecture, and initial implementation for teams building in-house capability for the first time.',
+    'svc.t2': '02 — integration',
+    'svc.h3b': 'SSP/DSP integration',
+    'svc.p2': 'Bidstream architecture review, header bidding configuration, connectivity across your supply and demand partners.',
+    'svc.t3': '03 — compliance',
+    'svc.h3c': 'Privacy & compliance engineering',
+    'svc.p3': 'Technical implementation of GDPR/CNIL requirements, CMP integration, and cookieless identity migration.',
+    'svc.t4': '04 — data',
+    'svc.h3d': 'First-party data activation',
+    'svc.p4': 'Data layer audits and integration of first-party data into your DSP environment.',
+    'svc.t5': '05 — enablement',
+    'svc.h3e': 'Team upskilling',
+    'svc.p5': 'Structured technical training so your in-house team can own the stack after the engagement ends.',
+    'svc.t6': '06 — advisory',
+    'svc.h3f': 'Ongoing technical advisory',
+    'svc.p6': 'Ad hoc architecture reviews and build-vs-buy guidance as your in-house desk scales.',
+
+    'app.h2': 'Why not just hire an agency?',
+    'app.k1': 'Agencies',
+    'app.h3a': 'Bundle strategy with execution',
+    'app.p1': 'Full-service agencies plan, buy, and report on media — useful, but the technical layer underneath is usually opaque, and their incentive is to keep running your campaigns, not to hand you the keys.',
+    'app.h3b': 'Hands you the infrastructure, then leaves',
+    'app.p2': 'Engaged specifically to build technical capability inside your team — integration, compliance, data activation — with upskilling built in, so the engagement has a natural end point instead of a retainer that never closes.',
+
+    'con.h2': 'Start a conversation',
+    'con.lede': 'Tell me a bit about where your programmatic setup stands today.',
+    'con.p1': 'Reach out directly — I read every email myself and usually respond within a day.',
+    'con.p2': 'Based in Paris. Working with brands across France and the EU — remote-friendly, on-site by arrangement.',
+
+    'foot.left': 'PASSERELLE CONSULTING — TECHNICAL PROGRAMMATIC CONSULTING',
+    'doc.title': 'Passerelle Consulting — Technical Programmatic Consulting'
+  };
+
+  // French copy is authored directly in the markup; capture it on load so
+  // switching back to FR needs no second dictionary.
+  var fr = {};
+  var nodes = document.querySelectorAll('[data-i18n], [data-i18n-html], [data-i18n-label]');
+  nodes.forEach(function(el){
+    if (el.dataset.i18n) fr[el.dataset.i18n] = el.textContent;
+    if (el.dataset.i18nHtml) fr[el.dataset.i18nHtml] = el.innerHTML;
+    if (el.dataset.i18nLabel) fr[el.dataset.i18nLabel] = el.getAttribute('aria-label');
+  });
+  fr['doc.title'] = document.title;
+
+  var dicts = { fr: fr, en: en };
+  var buttons = document.querySelectorAll('.lang button');
+
+  function apply(lang){
+    var d = dicts[lang] || dicts[DEFAULT_LANG];
+    nodes.forEach(function(el){
+      var k;
+      if ((k = el.dataset.i18n) && d[k] != null) el.textContent = d[k];
+      if ((k = el.dataset.i18nHtml) && d[k] != null) el.innerHTML = d[k];
+      if ((k = el.dataset.i18nLabel) && d[k] != null) el.setAttribute('aria-label', d[k]);
+    });
+    if (d['doc.title']) document.title = d['doc.title'];
+    document.documentElement.lang = lang;
+    buttons.forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    });
+    try { localStorage.setItem('passerelle-lang', lang); } catch(e){}
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.lang); });
+  });
+
+  var stored;
+  try { stored = localStorage.getItem('passerelle-lang'); } catch(e){}
+  if (stored && dicts[stored] && stored !== DEFAULT_LANG) apply(stored);
+})();
+</script>
 
 </body>
 </html>
