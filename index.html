@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passerelle Consulting — Technical Programmatic Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F6F3;
+    --bg-panel: #FFFFFF;
+    --ink: #12181F;
+    --ink-soft: #4A5361;
+    --line: #D8DCD6;
+    --blue: #1E3A8A;
+    --blue-bright: #2451D1;
+    --trace: #0EA5A0;
+    --amber: #C77C22;
+    --radius: 2px;
+  }
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection{ background: var(--trace); color: #fff; }
+  a{ color: inherit; }
+  .mono{ font-family: 'IBM Plex Mono', monospace; }
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--blue-bright); outline-offset: 3px;
+  }
+
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(245,246,243,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ font-family:'Space Grotesk'; font-weight:700; font-size:19px; letter-spacing:0.01em; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);}
+  .brand-dot{ width:9px; height:9px; background:var(--trace); border-radius:50%; box-shadow:0 0 0 3px rgba(14,165,160,0.15);}
+  .navlinks{ display:flex; gap:36px; list-style:none; }
+  .navlinks a{ font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft); transition:color .15s; }
+  .navlinks a:hover{ color:var(--blue-bright); }
+  @media (max-width:720px){ .navlinks{ display:none; } }
+
+  /* HERO */
+  .hero{ padding: 92px 0 40px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--trace); display:flex; align-items:center; gap:10px; margin-bottom:28px;
+  }
+  .eyebrow::before{ content:''; width:24px; height:1px; background:var(--trace); }
+  h1{
+    font-family:'Space Grotesk'; font-weight:600; font-size: clamp(34px, 5.4vw, 58px);
+    line-height:1.06; letter-spacing:-0.015em; max-width: 15ch; color: var(--ink);
+  }
+  h1 em{ font-style:normal; color: var(--blue-bright); }
+  .hero-sub{ max-width:52ch; margin-top:24px; font-size:18px; color:var(--ink-soft); }
+  .hero-cta{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; align-items:center;}
+  .btn{
+    font-family:'IBM Plex Mono'; font-size:13px; letter-spacing:0.03em; text-transform:uppercase;
+    padding:13px 24px; border-radius:var(--radius); text-decoration:none; display:inline-block;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{ background:var(--ink); color:#fff; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(18,24,31,0.22); }
+  .btn-ghost{ border:1px solid var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--blue-bright); color:var(--blue-bright); }
+
+  /* SIGNAL DIAGRAM */
+  .diagram{ margin-top:64px; border:1px solid var(--line); background:var(--bg-panel); border-radius:var(--radius); overflow:hidden; }
+  .diagram-label{
+    font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
+    padding:14px 20px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between;
+  }
+  .diagram svg{ display:block; width:100%; height:auto; }
+  .node-label{ font-family:'IBM Plex Mono', monospace; font-size:12px; fill: var(--ink); }
+  .node-sub{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; fill: var(--ink-soft); }
+  .trace-line{ stroke: var(--line); stroke-width:1.5; fill:none; }
+  .trace-active{ stroke: var(--trace); stroke-width:1.5; fill:none; stroke-dasharray: 4 4; animation: dash 22s linear infinite; }
+  @keyframes dash{ to{ stroke-dashoffset: -400; } }
+  .node-box{ fill:var(--bg); stroke:var(--line); stroke-width:1.2; }
+  .node-box.hi{ stroke: var(--blue-bright); }
+  .pulse{ fill: var(--trace); }
+
+  /* SECTIONS */
+  section{ padding: 88px 0; border-top:1px solid var(--line); }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:48px; gap:24px; flex-wrap:wrap; }
+  .section-num{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--trace); }
+  h2{ font-family:'Space Grotesk'; font-weight:600; font-size: clamp(24px, 3vw, 32px); letter-spacing:-0.01em; }
+  .lede{ max-width:60ch; color:var(--ink-soft); font-size:17px; }
+
+  /* PEDIGREE */
+  .pedigree-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px;}
+  .ped-card{ background:var(--bg-panel); padding:26px 22px; }
+  .ped-card .co{ font-family:'Space Grotesk'; font-weight:600; font-size:17px; }
+  .ped-card .role{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--trace); margin-top:10px; }
+  .ped-card .desc{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
+  @media (max-width:820px){ .pedigree-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width:520px){ .pedigree-grid{ grid-template-columns: 1fr; } }
+
+  /* SERVICES */
+  .services{ display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .svc{ background:var(--bg-panel); padding:32px; }
+  .svc .tag{ font-family:'IBM Plex Mono'; font-size:11px; color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em; }
+  .svc h3{ font-family:'Space Grotesk'; font-size:19px; font-weight:600; margin-top:10px; }
+  .svc p{ margin-top:10px; font-size:14.5px; color:var(--ink-soft); }
+  @media (max-width:720px){ .services{ grid-template-columns: 1fr; } }
+
+  /* APPROACH */
+  .approach{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:start; }
+  .approach-col .k{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:10px; }
+  .approach-col h3{ font-family:'Space Grotesk'; font-size:20px; font-weight:600; margin-bottom:12px; }
+  .approach-col p{ color:var(--ink-soft); font-size:15px; }
+  .approach-col.hi{ border-left:2px solid var(--trace); padding-left:24px; }
+  @media (max-width:720px){ .approach{ grid-template-columns:1fr; } }
+
+  /* CONTACT */
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; }
+  .field{ margin-bottom:20px; }
+  label{ display:block; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:8px; }
+  input, textarea{
+    width:100%; background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:12px 14px; font-family:'Inter'; font-size:14.5px; color:var(--ink);
+  }
+  textarea{ resize:vertical; min-height:110px; }
+  input:focus, textarea:focus{ border-color: var(--blue-bright); outline:none; }
+  .direct{ margin-top:8px; }
+  .direct a{ color:var(--blue-bright); text-decoration:none; border-bottom:1px solid rgba(36,81,209,0.35); }
+  @media (max-width:720px){ .contact-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  footer{ border-top:1px solid var(--line); padding:32px 0; }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+  .foot-row span{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce){
+    .trace-active{ animation:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="brand-dot"></span>PASSERELLE CONSULTING</a>
+    <ul class="navlinks">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pedigree">Track record</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none; padding-top:92px;">
+    <div class="wrap">
+      <div class="eyebrow">Technical programmatic consulting · Paris</div>
+      <h1>Your media team knows <em>what</em> to buy.<br>We build <em>how</em> it works.</h1>
+      <p class="hero-sub">Independent technical consulting for brands bringing programmatic advertising in-house — the engineering underneath the media plan: DSP/SSP integration, first-party data activation, and privacy-compliant identity infrastructure.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Start a conversation</a>
+        <a href="#services" class="btn btn-ghost">See what's in scope</a>
+      </div>
+
+      <div class="diagram">
+        <div class="diagram-label">
+          <span>fig. 1 — where this practice sits</span>
+          <span>media plan → engineering layer → ad stack</span>
+        </div>
+        <svg viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing the consultancy positioned between a brand's marketing team and its DSP, SSP, CMP, and identity infrastructure">
+          <!-- BRAND node -->
+          <rect x="30" y="98" width="150" height="64" rx="2" class="node-box hi"/>
+          <text x="105" y="124" text-anchor="middle" class="node-label">BRAND / IN-HOUSE</text>
+          <text x="105" y="140" text-anchor="middle" class="node-sub">marketing team</text>
+
+          <!-- trace to center -->
+          <path d="M180,130 L 400,130" class="trace-active"/>
+          <circle cx="290" cy="130" r="3" class="pulse"/>
+
+          <!-- CENTER engineering layer -->
+          <rect x="400" y="70" width="240" height="120" rx="2" class="node-box hi" stroke-width="1.6"/>
+          <text x="520" y="118" text-anchor="middle" class="node-label" font-weight="500">PASSERELLE</text>
+          <text x="520" y="136" text-anchor="middle" class="node-sub">integration · compliance</text>
+          <text x="520" y="150" text-anchor="middle" class="node-sub">data activation</text>
+
+          <!-- traces out to 4 nodes -->
+          <path d="M640,100 L 860,40" class="trace-line"/>
+          <path d="M640,120 L 860,100" class="trace-line"/>
+          <path d="M640,140 L 860,160" class="trace-line"/>
+          <path d="M640,160 L 860,220" class="trace-line"/>
+
+          <rect x="860" y="18" width="150" height="44" rx="2" class="node-box"/>
+          <text x="935" y="45" text-anchor="middle" class="node-label">DSP</text>
+
+          <rect x="860" y="78" width="150" height="44" rx="2" class="node-box"/>
+          <text x="935" y="105" text-anchor="middle" class="node-label">SSP</text>
+
+          <rect x="860" y="138" width="150" height="44" rx="2" class="node-box"/>
+          <text x="935" y="165" text-anchor="middle" class="node-label">CMP / privacy</text>
+
+          <rect x="860" y="198" width="150" height="44" rx="2" class="node-box"/>
+          <text x="935" y="225" text-anchor="middle" class="node-label">Identity / 1P data</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="pedigree">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono">fig. 2</div>
+          <h2>Built on the infrastructure side, not the strategy deck</h2>
+        </div>
+        <p class="lede">Senior engineering roles across the supply side, demand side, and agentic advertising layer of programmatic — the parts of the stack most consultants only reference secondhand.</p>
+      </div>
+      <div class="pedigree-grid">
+        <div class="ped-card">
+          <div class="co">TripleLift</div>
+          <div class="role">Supply side</div>
+          <div class="desc">Native & video supply infrastructure, publisher-facing integration.</div>
+        </div>
+        <div class="ped-card">
+          <div class="co">Martin DSP</div>
+          <div class="role">Demand side</div>
+          <div class="desc">Real-time bidding logic and demand-side platform engineering.</div>
+        </div>
+        <div class="ped-card">
+          <div class="co">PubMatic</div>
+          <div class="role">Supply side</div>
+          <div class="desc">Header bidding, exchange infrastructure at scale.</div>
+        </div>
+        <div class="ped-card">
+          <div class="co">Scope3</div>
+          <div class="role">Agentic advertising</div>
+          <div class="desc">Worked on Interchange — infrastructure for agentic, cross-platform advertising.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono">fig. 3</div>
+          <h2>What's in scope</h2>
+        </div>
+        <p class="lede">Engaged where a brand needs engineering depth — not campaign management, not creative, not media strategy.</p>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <div class="tag">01 — setup</div>
+          <h3>Programmatic strategy &amp; technical setup</h3>
+          <p>DSP selection, trading desk architecture, and initial implementation for teams building in-house capability for the first time.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">02 — integration</div>
+          <h3>SSP/DSP integration</h3>
+          <p>Bidstream architecture review, header bidding configuration, connectivity across your supply and demand partners.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">03 — compliance</div>
+          <h3>Privacy &amp; compliance engineering</h3>
+          <p>Technical implementation of GDPR/CNIL requirements, CMP integration, and cookieless identity migration.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">04 — data</div>
+          <h3>First-party data activation</h3>
+          <p>Data layer audits and integration of first-party data into your DSP environment.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">05 — enablement</div>
+          <h3>Team upskilling</h3>
+          <p>Structured technical training so your in-house team can own the stack after the engagement ends.</p>
+        </div>
+        <div class="svc">
+          <div class="tag">06 — advisory</div>
+          <h3>Ongoing technical advisory</h3>
+          <p>Ad hoc architecture reviews and build-vs-buy guidance as your in-house desk scales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono">fig. 4</div>
+          <h2>Why not just hire an agency?</h2>
+        </div>
+      </div>
+      <div class="approach">
+        <div class="approach-col">
+          <div class="k">Agencies</div>
+          <h3>Bundle strategy with execution</h3>
+          <p>Full-service agencies plan, buy, and report on media — useful, but the technical layer underneath is usually opaque, and their incentive is to keep running your campaigns, not to hand you the keys.</p>
+        </div>
+        <div class="approach-col hi">
+          <div class="k">Passerelle Consulting</div>
+          <h3>Hands you the infrastructure, then leaves</h3>
+          <p>Engaged specifically to build technical capability inside your team — integration, compliance, data activation — with upskilling built in, so the engagement has a natural end point instead of a retainer that never closes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono">fig. 5</div>
+          <h2>Start a conversation</h2>
+        </div>
+        <p class="lede">Tell me a bit about where your programmatic setup stands today.</p>
+      </div>
+      <div class="contact-grid">
+        <form onsubmit="return false;">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Jane Dupont">
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" type="text" placeholder="Brand name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@company.com">
+          </div>
+          <div class="field">
+            <label for="message">What are you working on?</label>
+            <textarea id="message" placeholder="A few lines on where your programmatic setup stands today..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Send</button>
+        </form>
+        <div>
+          <div class="k mono" style="font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:12px;">Direct</div>
+          <p style="color:var(--ink-soft); font-size:15px; max-width:38ch;">Prefer email? Reach out directly and I'll usually respond within a day.</p>
+          <p class="direct mono"><a href="mailto:hello@passerelleconsulting.com">hello@passerelleconsulting.com</a></p>
+          <p style="margin-top:28px; font-size:13px; color:var(--ink-soft); max-width:38ch;">Based in Paris. Working with brands across France and the EU — remote-friendly, on-site by arrangement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>PASSERELLE CONSULTING — TECHNICAL PROGRAMMATIC CONSULTING</span>
+    <span>PARIS, FR</span>
+  </div>
+</footer>
+
+</body>
+</html>
