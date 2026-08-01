@@ -40,7 +40,7 @@
     "desc.home": "Conseil indépendant pour les marques qui veulent gérer elles-mêmes leur publicité en ligne. Nous construisons et connectons les outils, puis nous formons vos équipes.",
     "desc.services": "Six façons d'intervenir sur votre publicité en ligne, expliquées simplement — et ce que nous ne faisons pas.",
     "desc.approach": "Le déroulé d'une mission en quatre étapes, la différence avec une agence, et les questions que l'on nous pose le plus souvent.",
-    "desc.about": "Quinze ans passés à construire les plateformes publicitaires elles-mêmes, chez TripleLift, Martin DSP, PubMatic et Scope3.",
+    "desc.about": "Huit ans à l'intérieur des plateformes publicitaires elles-mêmes — support, solutions et ingénierie chez TripleLift, Martin DSP, PubMatic et Scope3.",
     "desc.contact": "Un premier échange d'une heure, gratuit et sans engagement. Basés à Paris et New York.",
 
     /* ---------- home ---------- */
@@ -83,7 +83,7 @@
     "teaser.p2": "Les quatre étapes d'une mission, ce qu'elle coûte en temps, et pourquoi elle se termine au lieu de s'éterniser.",
     "teaser.k3": "qui parle",
     "teaser.h3": "À propos",
-    "teaser.p3": "Quinze ans passés à construire les plateformes elles-mêmes, plutôt qu'à les utiliser de loin.",
+    "teaser.p3": "Huit ans passés à l'intérieur des plateformes elles-mêmes, plutôt qu'à les utiliser de loin.",
     "teaser.k4": "premier échange",
     "teaser.h4": "Contact",
     "teaser.p4": "Un premier échange sans engagement, même si vous ne savez pas encore formuler le problème.",
@@ -160,11 +160,11 @@
     "app.ctaP": "Une heure, gratuite, sans engagement. Si le sujet ne nous concerne pas, nous vous le dirons — et nous vous orienterons quand nous le pouvons.",
 
     /* ---------- about ---------- */
-    "ab.h1": "Nous avons construit ces plateformes avant de conseiller dessus",
-    "ab.lede": "La plupart des consultants en publicité en ligne ont appris le métier côté agence, en utilisant les outils. Nous l'avons appris de l'autre côté : en construisant les outils eux-mêmes, chez les entreprises qui les fabriquent.",
+    "ab.h1": "Nous avons travaillé dans ces plateformes avant de conseiller dessus",
+    "ab.lede": "La plupart des consultants en publicité en ligne ont appris le métier côté agence, en utilisant les outils. Nous l'avons appris de l'intérieur : huit ans chez les entreprises qui fabriquent ces plateformes, en support, en solutions et en ingénierie — les trois postes qui, ensemble, voient tout, du problème du client au code qui le provoque.",
     "ab.pedKicker": "parcours",
-    "ab.pedH2": "Quinze ans dans la salle des machines",
-    "ab.pedLede": "Des postes d'ingénierie chez ceux qui vendent l'espace publicitaire, chez ceux qui l'achètent, et sur la nouvelle génération d'outils pilotés par l'IA.",
+    "ab.pedH2": "Huit ans dans la salle des machines",
+    "ab.pedLede": "Des postes en support, en solutions et en ingénierie chez ceux qui vendent l'espace publicitaire, chez ceux qui l'achètent, et sur la nouvelle génération d'outils pilotés par l'IA.",
     "ab.r1": "côté sites & médias",
     "ab.d1": "Les systèmes qui permettent aux sites et aux médias de vendre leurs espaces publicitaires.",
     "ab.r2": "côté annonceurs",
@@ -176,7 +176,7 @@
     "ab.whyKicker": "concrètement",
     "ab.whyH2": "Ce que ça change pour vous",
     "ab.w1h": "Nous savons quand on vous raconte des histoires",
-    "ab.w1p": "Quand un prestataire explique qu'une chose est impossible, trop complexe ou trop coûteuse, nous savons généralement si c'est vrai — parce que nous avons écrit ce genre de système.",
+    "ab.w1p": "Quand un prestataire explique qu'une chose est impossible, trop complexe ou trop coûteuse, nous savons généralement si c'est vrai — parce que nous avons travaillé sur ce genre de système, de l'intérieur.",
     "ab.w2h": "Nous ne vendons aucun outil",
     "ab.w2p": "Nous ne touchons pas de commission des plateformes et nous ne prenons pas de pourcentage sur vos dépenses publicitaires. La recommandation que vous recevez n'a pas d'arrière-pensée commerciale.",
     "ab.w3h": "Nous parlons votre langue",
