@@ -98,7 +98,7 @@
 
     /* ---------- services ---------- */
     "svc.h1": "Comment nous intervenons",
-    "svc.lede": "Vous n'aurez pas besoin de tout — la plupart des missions commencent par un ou deux volets. Ouvrez pour le détail.",
+    "svc.lede": "Vous n'aurez pas besoin de tout. La plupart des missions commencent par un ou deux volets. Le terme technique figure dessous, au cas où votre prestataire l'emploie.",
     "svc.t1": "01 — mise en place",
     "svc.h3a": "Monter votre dispositif",
     "svc.p1": "Nous choisissons les plateformes adaptées à votre budget, nous les installons et les paramétrons.",
