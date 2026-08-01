@@ -32,8 +32,12 @@ approche.html     How it works — four stages, vs. an agency, FAQ
 a-propos.html     About — background and why it matters to the client
 contact.html      Contact — email, what to expect, nothing to prepare
 assets/styles.css All styling for every page
-assets/i18n.js    Language toggle + the English dictionary
+assets/i18n.js    Language toggle + the French dictionary
 ```
+
+The two sub-page filenames are French (`approche.html`, `a-propos.html`) because
+the site was originally French-first. They're kept as-is so existing links don't
+break; rename them if you'd rather the URLs match the default language.
 
 Because there is no templating, the header and footer markup is repeated in each
 page. If you change a nav link, change it in all five (and in the footer nav).
@@ -53,17 +57,22 @@ founders, comms leads — not for ad-tech engineers. When editing:
 - Prefer concrete outcomes ("you pay without seeing where the money goes") over
   capability lists ("bidstream architecture review").
 
-## Languages (FR / EN)
+## Languages (EN / FR)
 
-The site ships in **French by default**, with an EN toggle in the header. The
+The site ships in **English by default**, with a FR toggle in the header. The
 visitor's choice is remembered in `localStorage` under `passerelle-lang` and
 persists as they move between pages.
 
-- **French copy lives in the HTML itself.** Edit the markup directly; the script
-  captures it on page load, so there is no second French dictionary to keep in sync.
-- **English copy lives in the `en = {…}` object** in `assets/i18n.js`, keyed by
+- **English copy lives in the HTML itself.** Edit the markup directly; the script
+  captures it on page load, so there is no second English dictionary to keep in sync.
+- **French copy lives in the `fr = {…}` object** in `assets/i18n.js`, keyed by
   the `data-i18n` attribute on each element. One dictionary serves all five pages;
   keys that aren't on a given page are simply unused.
+
+Because English is what the server sends, it is also what search engines and
+anyone with JavaScript disabled get. Switching the default the other way means
+swapping the two halves — English into `assets/i18n.js`, French into the markup,
+and `DEFAULT_LANG` at the top of that file — not just flipping a flag.
 
 Supported attributes:
 
@@ -76,13 +85,13 @@ Supported attributes:
 | `data-title-key` on `<body>` | that page's `<title>` |
 
 To add translatable text: give the element a `data-i18n="some.key"` attribute,
-write the French inline, and add the matching English string to the `en` object.
+write the English inline, and add the matching French string to the `fr` object.
 Anything without a key stays identical in both languages.
 
 Two things worth checking after a copy edit:
 
-1. **Every key needs an English string.** A key missing from `en` silently leaves
-   French text on the English site.
+1. **Every key needs a French string.** A key missing from `fr` silently leaves
+   English text on the French site.
 2. **SVG diagram labels don't wrap.** Keep them under ~150px (roughly 20
    characters at the current size) in *both* languages, or they spill out of their
    boxes. Everything else on the page reflows fine down to 320px.
