@@ -96,9 +96,6 @@ header{
 .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(18,24,31,0.22); }
 .btn-ghost{ border:1px solid var(--line); color:var(--ink); }
 .btn-ghost:hover{ border-color:var(--blue-bright); color:var(--blue-bright); }
-/* .btn was written for <a>; a <button> would otherwise keep the UA border and font. */
-button.btn{ border:none; cursor:pointer; font-family:'IBM Plex Mono'; }
-button.btn[disabled]{ opacity:0.55; cursor:default; transform:none; box-shadow:none; }
 
 /* ---------- HERO (home) ---------- */
 .hero{ padding: 92px 0 40px; border-top:none; }
@@ -249,41 +246,6 @@ h3{ line-height:1.28; }
 .expect li{ padding:14px 0; border-bottom:1px solid var(--line); font-size:15px; color:var(--ink-soft); display:flex; gap:14px; }
 .expect li:last-child{ border-bottom:none; }
 .expect .i{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--trace); flex:none; padding-top:2px; }
-
-/* ---------- CONTACT FORM ---------- */
-.field{ margin-bottom:20px; }
-label{ display:block; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:8px; }
-label .opt{ text-transform:none; letter-spacing:0; font-size:11px; opacity:0.75; }
-input, textarea{
-  width:100%; background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
-  padding:12px 14px; font-family:'Inter'; font-size:14.5px; color:var(--ink);
-}
-textarea{ resize:vertical; min-height:130px; }
-input:focus, textarea:focus{ border-color: var(--blue-bright); outline:none; }
-
-/* Bots fill in anything they find; humans never see this. Not type="hidden",
-   which most bots know to skip. */
-.honeypot{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
-
-.consent{ display:flex; gap:12px; align-items:flex-start; margin-bottom:22px; }
-.consent input[type="checkbox"]{ width:auto; flex:none; margin-top:3px; accent-color:var(--trace); }
-.consent label{
-  text-transform:none; letter-spacing:0; font-family:'Inter'; font-size:13.5px;
-  color:var(--ink-soft); margin-bottom:0; line-height:1.5;
-}
-
-.form-status{
-  margin-top:16px; font-size:14.5px; line-height:1.5; display:none;
-  border-left:2px solid var(--line); padding-left:14px;
-}
-.form-status.is-visible{ display:block; }
-.form-status.is-sending{ color:var(--ink-soft); border-left-color:var(--ink-soft); }
-.form-status.is-ok{ color:var(--ink); border-left-color:var(--trace); }
-.form-status.is-error{ color:var(--ink); border-left-color:var(--amber); }
-.form-status a{ color:var(--blue-bright); }
-
-.form-alt{ margin-top:26px; padding-top:20px; border-top:1px solid var(--line); font-size:14px; color:var(--ink-soft); }
-.form-alt a{ color:var(--blue-bright); text-decoration:none; border-bottom:1px solid rgba(36,81,209,0.35); overflow-wrap:anywhere; }
 
 /* ---------- CTA STRIP ---------- */
 .cta-strip{

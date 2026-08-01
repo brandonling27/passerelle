@@ -44,42 +44,6 @@ page. If you change a nav link, change it in all five (and in the footer nav).
 Each page marks its own nav item with `aria-current="page"`, and sets
 `<body data-title-key="…">` so the script can translate the page title.
 
-## The contact form
-
-`contact.html` carries a form that posts to **Formspree**. GitHub Pages only
-serves static files and cannot receive a `POST`, so submissions have to go to an
-external endpoint. (Squarespace is only the registrar/DNS for this domain — it
-serves none of these pages, so its form builder isn't available here.)
-
-**To point the form at your inbox**, replace the placeholder in `contact.html`:
-
-```html
-<form id="contact-form" action="https://formspree.io/f/FORMSPREE_ID_HERE" method="POST">
-```
-
-with the form ID from your Formspree dashboard. Formspree sends a one-time
-confirmation email on the very first submission — send a test message and click
-through it, or nothing will arrive.
-
-Notes:
-
-- **It works without JavaScript.** The form posts natively and Formspree shows
-  its own thank-you page. `assets/form.js` upgrades this to a `fetch` submission
-  with an inline result, so nobody leaves the page. Don't make the markup depend
-  on the script.
-- **Status messages are not stored in `form.js`.** They sit in `contact.html` as
-  hidden `[data-i18n]` spans so the normal translation mechanism covers them;
-  `form.js` reads whichever one it needs at submit time. Add a new message the
-  same way rather than hard-coding a string in the script.
-- **`_gotcha`** is Formspree's honeypot: hidden by CSS (not `type="hidden"`,
-  which bots skip) and left empty by humans. `_subject` sets the notification
-  email's subject line.
-- **Validation is native** (`required`, `type="email"`), so the browser supplies
-  error messages already translated to the visitor's locale — nothing to write.
-- The consent checkbox and its wording are deliberate on a site that sells
-  privacy compliance. If you remove it, remove `form.consent` from the dictionary
-  too.
-
 ## Tone
 
 The site is written for **non-technical decision-makers** — marketing directors,

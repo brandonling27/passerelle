@@ -199,20 +199,7 @@
     "con.e4": "Si nous continuons : un diagnostic chiffré avant tout engagement de votre part.",
     "con.prepK": "avant l'échange",
     "con.prepH": "Rien à préparer",
-    "con.prepP": "Si vous les avez sous la main, le montant approximatif de votre budget publicitaire annuel et le nom de vos prestataires actuels font gagner du temps. Si vous ne les avez pas, ce n'est pas grave — nous les trouverons ensemble.",
-
-    /* ---------- contact form ---------- */
-    "form.name": "Votre nom",
-    "form.email": "E-mail",
-    "form.company": "Société",
-    "form.optional": "(facultatif)",
-    "form.message": "Où en est votre dispositif publicitaire aujourd'hui ?",
-    "form.consent": "J'accepte que Passerelle Consulting conserve les informations ci-dessus afin de me répondre. Elles ne sont transmises à personne d'autre, et vous pouvez nous demander de les supprimer à tout moment.",
-    "form.submit": "Envoyer le message",
-    "form.orEmail": "Vous préférez votre propre messagerie ?",
-    "form.sending": "Envoi en cours…",
-    "form.success": "Merci — votre message est parti. Nous répondons généralement sous un jour ouvré.",
-    "form.error": "L'envoi a échoué. Écrivez-nous directement à hello@passerelleconsulting.com."
+    "con.prepP": "Si vous les avez sous la main, le montant approximatif de votre budget publicitaire annuel et le nom de vos prestataires actuels font gagner du temps. Si vous ne les avez pas, ce n'est pas grave — nous les trouverons ensemble."
   };
 
   /* English copy is captured from the markup on load. */

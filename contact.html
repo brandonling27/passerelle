@@ -44,51 +44,9 @@
     <div class="wrap">
       <div class="contact-cols">
         <div>
-          <!-- Posts natively to Formspree without JavaScript; assets/form.js
-               upgrades it to an inline result. Replace the ID to change inbox. -->
-          <form id="contact-form" action="https://formspree.io/f/FORMSPREE_ID_HERE" method="POST">
-            <input type="hidden" name="_subject" value="New enquiry — passerelleconsulting.com">
-            <div class="honeypot" aria-hidden="true">
-              <label for="_gotcha">Leave this field empty</label>
-              <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
-            </div>
-
-            <div class="field">
-              <label for="f-name" data-i18n="form.name">Your name</label>
-              <input type="text" id="f-name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="f-email" data-i18n="form.email">Email</label>
-              <input type="email" id="f-email" name="email" autocomplete="email" required>
-            </div>
-            <div class="field">
-              <label for="f-company"><span data-i18n="form.company">Company</span> <span class="opt" data-i18n="form.optional">(optional)</span></label>
-              <input type="text" id="f-company" name="company" autocomplete="organization">
-            </div>
-            <div class="field">
-              <label for="f-message" data-i18n="form.message">Where does your advertising setup stand today?</label>
-              <textarea id="f-message" name="message" required></textarea>
-            </div>
-
-            <div class="consent">
-              <input type="checkbox" id="f-consent" name="consent" value="yes" required>
-              <label for="f-consent" data-i18n="form.consent">I agree to Passerelle Consulting storing the details above in order to reply to me. Nothing is shared with anyone else, and you can ask us to delete them at any time.</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send message</button>
-            <p class="form-status" role="status" aria-live="polite"></p>
-          </form>
-
-          <p class="form-alt">
-            <span data-i18n="form.orEmail">Prefer your own mail client?</span>
-            <a href="mailto:hello@passerelleconsulting.com">hello@passerelleconsulting.com</a>
-          </p>
-
-          <!-- Status strings live in the DOM so the existing i18n script
-               translates them; form.js reads them at submit time. -->
-          <span hidden data-i18n="form.sending">Sending…</span>
-          <span hidden data-i18n="form.success">Thank you — your message is on its way. We usually reply within one business day.</span>
-          <span hidden data-i18n="form.error">Something went wrong sending that. Please email us directly at hello@passerelleconsulting.com.</span>
+          <p class="direct mono email"><a href="mailto:hello@passerelleconsulting.com">hello@passerelleconsulting.com</a></p>
+          <p style="margin-top:20px; color:var(--ink-soft); font-size:16px; max-width:46ch;" data-i18n="con.p1">Every message is read personally, not by a sales team. Usually a reply within one business day.</p>
+          <p style="margin-top:24px; font-size:14px; color:var(--ink-soft); max-width:46ch;" data-i18n="con.p2">Based in Paris and New York. We work with brands across France, the European Union and the United States — remote-friendly, on-site by arrangement. Conversations in French or English.</p>
         </div>
         <div>
           <div class="section-num mono" style="margin-bottom:14px;" data-i18n="con.expectK">what to expect</div>
@@ -98,8 +56,6 @@
             <li><span class="i">03</span><span data-i18n="con.e3">A straight answer on whether an engagement makes sense — including when the answer is "not yet" or "not us".</span></li>
             <li><span class="i">04</span><span data-i18n="con.e4">If we continue: a costed assessment before you commit to anything.</span></li>
           </ul>
-          <p style="margin-top:24px; color:var(--ink-soft); font-size:15px;" data-i18n="con.p1">Every message is read personally, not by a sales team. Usually a reply within one business day.</p>
-          <p style="margin-top:18px; font-size:14px; color:var(--ink-soft);" data-i18n="con.p2">Based in Paris and New York. We work with brands across France, the European Union and the United States — remote-friendly, on-site by arrangement. Conversations in French or English.</p>
         </div>
       </div>
     </div>
@@ -133,6 +89,5 @@
 </footer>
 
 <script src="assets/i18n.js"></script>
-<script src="assets/form.js"></script>
 </body>
 </html>
