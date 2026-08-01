@@ -56,6 +56,25 @@ founders, comms leads — not for ad-tech engineers. When editing:
   the words their current provider uses.
 - Prefer concrete outcomes ("you pay without seeing where the money goes") over
   capability lists ("bidstream architecture review").
+- **Keep it short.** Card copy is one sentence. If a paragraph needs three, it
+  probably wants to be a diagram instead.
+
+## Graphics
+
+All artwork is inline SVG — no image files, no icon library, nothing to load.
+
+- **Icons** are drawn on a 24×24 grid and carry `class="ico"`, which strokes them
+  in the accent colour at 1.4px. They're stroke-only (`fill:none`) so they read as
+  part of the same drawing as the figures. Mark them `aria-hidden="true"`: the
+  heading next to them already says what they mean.
+- **Figures** (`fig. 1` on the home page, `fig. 2` on About) use the `.diagram`
+  wrapper: a labelled header, the SVG, and a `.diagram-foot` caption. Give the
+  `<svg>` a `role="img"` and a translatable `data-i18n-label` — the caption is
+  not a substitute for the alt text.
+- **SVG text does not wrap.** Every label must fit its own box in *both*
+  languages; French runs ~15% longer. Check with `getBBox()` rather than by eye.
+- The hero's faint grid is a CSS background on `.hero::before`, masked to fade
+  out. It's texture, not content.
 
 ## Languages (EN / FR)
 

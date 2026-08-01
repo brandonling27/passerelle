@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Passerelle Consulting</title>
-<meta name="description" data-i18n-content="desc.about" content="Eight years inside the advertising platforms themselves — support, solutions and engineering roles at TripleLift, Martin DSP, PubMatic and Scope3.">
+<meta name="description" data-i18n-content="desc.about" content="Eight years inside the advertising platforms themselves — support, solutions and engineering at TripleLift, PubMatic, Martin DSP and Scope3.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
@@ -36,7 +36,7 @@
     <div class="wrap">
       <div class="crumb"><a href="index.html" data-i18n="nav.home">Home</a> <span aria-hidden="true">/</span> <span data-i18n="nav.about">About</span></div>
       <h1 data-i18n="ab.h1">We worked inside these platforms before advising on them</h1>
-      <p class="lede" data-i18n="ab.lede">Most online advertising consultants learned the trade on the agency side, using the tools. We learned it from the inside: eight years at the companies that build these platforms, across support, solutions and engineering — the three seats that between them see everything from the customer's problem to the code that causes it.</p>
+      <p class="lede" data-i18n="ab.lede">Eight years at the companies that build them — across support, solutions and engineering.</p>
     </div>
   </section>
 
@@ -47,29 +47,36 @@
           <div class="section-num mono" data-i18n="ab.pedKicker">background</div>
           <h2 data-i18n="ab.pedH2">Eight years in the engine room</h2>
         </div>
-        <p class="lede" data-i18n="ab.pedLede">Support, solutions and engineering roles at the companies that sell advertising space, at the ones that buy it, and on the new generation of AI-driven tools.</p>
       </div>
-      <div class="pedigree-grid">
-        <div class="ped-card">
-          <div class="co">TripleLift</div>
-          <div class="role" data-i18n="ab.r1">publisher side</div>
-          <div class="desc" data-i18n="ab.d1">The systems that let websites and media companies sell their advertising space.</div>
+
+      <div class="diagram">
+        <div class="diagram-label">
+          <span data-i18n="ab.figL">fig. 2 — where that experience sits</span>
+          <span data-i18n="ab.figR">the chain your budget travels down</span>
         </div>
-        <div class="ped-card">
-          <div class="co">Martin DSP</div>
-          <div class="role" data-i18n="ab.r2">advertiser side</div>
-          <div class="desc" data-i18n="ab.d2">The systems that buy advertising on behalf of brands, in a fraction of a second.</div>
-        </div>
-        <div class="ped-card">
-          <div class="co">PubMatic</div>
-          <div class="role" data-i18n="ab.r3">marketplace</div>
-          <div class="desc" data-i18n="ab.d3">One of the large global marketplaces where buyers and sellers of ad space meet.</div>
-        </div>
-        <div class="ped-card">
-          <div class="co">Scope3</div>
-          <div class="role" data-i18n="ab.r4">new generation</div>
-          <div class="desc" data-i18n="ab.d4">The infrastructure behind advertising driven by artificial intelligence.</div>
-        </div>
+        <svg viewBox="0 0 1040 200" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-label="ab.figAlt" aria-label="Diagram of the advertising chain from sell side to buy side, with TripleLift on the publisher side, PubMatic in the marketplace, Martin DSP on the advertiser side, and Scope3 as the AI layer above">
+          <line x1="150" y1="130" x2="890" y2="130" class="trace-line"/>
+          <text x="135" y="134" text-anchor="end" class="node-sub" data-i18n="ab.figSell">SELL SIDE</text>
+          <text x="905" y="134" text-anchor="start" class="node-sub" data-i18n="ab.figBuy">BUY SIDE</text>
+
+          <rect x="440" y="18" width="260" height="46" rx="2" class="node-box" stroke-dasharray="4 3"/>
+          <text x="570" y="38" text-anchor="middle" class="node-label">Scope3</text>
+          <text x="570" y="55" text-anchor="middle" class="node-sub" data-i18n="ab.figAi">the AI layer on top</text>
+          <path d="M570,64 L570,123" class="trace-line" stroke-dasharray="4 3"/>
+
+          <circle cx="280" cy="130" r="5" class="pulse"/>
+          <text x="280" y="105" text-anchor="middle" class="node-label">TripleLift</text>
+          <text x="280" y="158" text-anchor="middle" class="node-sub" data-i18n="ab.figR1">publisher side</text>
+
+          <circle cx="500" cy="130" r="5" class="pulse"/>
+          <text x="500" y="105" text-anchor="middle" class="node-label">PubMatic</text>
+          <text x="500" y="158" text-anchor="middle" class="node-sub" data-i18n="ab.figR2">marketplace</text>
+
+          <circle cx="760" cy="130" r="5" class="pulse"/>
+          <text x="760" y="105" text-anchor="middle" class="node-label">Martin DSP</text>
+          <text x="760" y="158" text-anchor="middle" class="node-sub" data-i18n="ab.figR3">advertiser side</text>
+        </svg>
+        <div class="diagram-foot"><p class="diagram-note" data-i18n="ab.figNote">Most consultants have only ever stood at one end of this chain. We have worked at three points along it.</p></div>
       </div>
     </div>
   </section>
@@ -84,19 +91,25 @@
       </div>
       <div class="plain">
         <div class="plain-card">
-          <div class="n">01</div>
-          <h3 data-i18n="ab.w1h">We know when you are being told stories</h3>
-          <p data-i18n="ab.w1p">When a provider explains that something is impossible, too complex or too expensive, we usually know whether that is true — because we have worked on that kind of system from the inside.</p>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/>
+          </svg>
+          <h3 data-i18n="ab.w1h">We know when you're being told stories</h3>
+          <p data-i18n="ab.w1p">"Impossible", "too complex", "too expensive" — we've worked on that kind of system.</p>
         </div>
         <div class="plain-card">
-          <div class="n">02</div>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5"/><line x1="6" y1="18" x2="18" y2="6"/>
+          </svg>
           <h3 data-i18n="ab.w2h">We sell no tools</h3>
-          <p data-i18n="ab.w2p">We take no commission from the platforms and no percentage of your advertising spend. The recommendation you get has no commercial motive behind it.</p>
+          <p data-i18n="ab.w2p">No platform commission, no cut of your spend. No motive behind the advice.</p>
         </div>
         <div class="plain-card">
-          <div class="n">03</div>
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 5h10v7H7l-4 3.5V5z"/><path d="M11 10.5h10v7h-4l-4 3.5v-3.5h-2z"/>
+          </svg>
           <h3 data-i18n="ab.w3h">We speak your language</h3>
-          <p data-i18n="ab.w3p">Knowing how the machine works also means being able to explain it without jargon. You should be able to repeat what we just told you, in your own words, in a meeting.</p>
+          <p data-i18n="ab.w3p">You should be able to repeat what we told you, in your own words, in a meeting.</p>
         </div>
       </div>
     </div>
@@ -107,7 +120,7 @@
       <div class="callout">
         <div class="k" data-i18n="ab.nameK">the name</div>
         <h3 data-i18n="ab.nameH">Why "Passerelle"</h3>
-        <p data-i18n="ab.nameP">A passerelle is a footbridge: it joins two banks and is crossed in both directions. On one side, marketing teams who know what they want to achieve; on the other, technical machinery speaking an impenetrable dialect. Our job is to walk people across — then let them cross on their own.</p>
+        <p data-i18n="ab.nameP">A footbridge joins two banks and is crossed in both directions. Our job is to walk you across — then let you cross on your own.</p>
       </div>
     </div>
   </section>
@@ -117,7 +130,7 @@
       <div class="cta-strip">
         <div>
           <h2 data-i18n="ab.ctaH">Rather discuss it in person?</h2>
-          <p data-i18n="ab.ctaP">Based in Paris and New York, we work with brands across France, Europe and the United States.</p>
+          <p data-i18n="ab.ctaP">Paris and New York. Clients across France, Europe and the US.</p>
         </div>
         <a href="contact.html" class="btn btn-primary" data-i18n="cta.btn">Get in touch</a>
       </div>
