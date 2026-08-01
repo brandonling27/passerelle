@@ -233,6 +233,42 @@ h3{ line-height:1.28; }
 }
 @media (max-width:720px){ .services{ grid-template-columns: 1fr; } }
 
+/* ---------- DRAWERS (services) ----------
+   Collapsed, the page is a six-line list you can scan; the detail and the
+   technical term are one click away. Same mechanism as the FAQ. */
+.drawers{ border:1px solid var(--line); background:var(--bg-panel); border-radius:var(--radius); }
+.drawer{ border-bottom:1px solid var(--line); }
+.drawer:last-child{ border-bottom:none; }
+.drawer > summary{
+  cursor:pointer; list-style:none; padding:20px 26px;
+  display:flex; align-items:center; gap:18px;
+}
+.drawer > summary::-webkit-details-marker{ display:none; }
+.drawer > summary::after{
+  content:'+'; font-family:'IBM Plex Mono'; color:var(--trace); font-size:18px; flex:none; line-height:1;
+}
+.drawer[open] > summary::after{ content:'–'; }
+.drawer > summary:hover .t{ color:var(--blue-bright); }
+.drawer .ico{ flex:none; }
+.drawer .t{ font-family:'Space Grotesk'; font-weight:600; font-size:17.5px; flex:1; line-height:1.3; }
+.drawer .tag{
+  font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
+  color:var(--ink-soft); flex:none;
+}
+.drawer[open] .tag{ color:var(--trace); }
+.drawer .d{ padding:0 26px 24px 70px; }
+.drawer .d p{ font-size:15px; color:var(--ink-soft); max-width:68ch; }
+.drawer .jargon{
+  margin-top:14px; padding-top:12px; border-top:1px dashed var(--line);
+  font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft); line-height:1.5;
+}
+@media (max-width:620px){
+  .drawer > summary{ padding:18px 20px; gap:14px; }
+  .drawer .tag{ display:none; }          /* the numbering is decorative */
+  .drawer .t{ font-size:16px; }
+  .drawer .d{ padding:0 20px 20px 54px; }
+}
+
 /* ---------- STEPS (timeline) ----------
    A rule runs behind the row with a node on each step, so the four stages read
    as one sequence ending in handover rather than four separate boxes. */
