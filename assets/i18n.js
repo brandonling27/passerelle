@@ -38,9 +38,9 @@
     "title.about": "À propos — Passerelle Consulting",
     "title.contact": "Contact — Passerelle Consulting",
     "desc.home": "Nous mettons en place la machinerie derrière votre publicité en ligne, nous la connectons, nous la rendons conforme — puis nous la confions à vos équipes.",
-    "desc.services": "Six façons d'intervenir sur votre publicité en ligne, en langage clair — et ce que nous ne faisons pas.",
+    "desc.services": "Comment nous intervenons sur votre publicité en ligne, en langage clair — et ce que nous ne faisons pas.",
     "desc.approach": "Quatre étapes, la différence avec une agence, et les questions que l'on nous pose le plus souvent.",
-    "desc.about": "Huit ans à l'intérieur des plateformes publicitaires — support, solutions et ingénierie chez TripleLift, PubMatic, Martin DSP et Scope3.",
+    "desc.about": "À l'intérieur des plateformes publicitaires elles-mêmes — support, solutions et ingénierie chez TripleLift, PubMatic, Martin DSP et Scope3.",
     "desc.contact": "Un premier échange d'une heure, gratuit et sans engagement. Basés à Paris et New York.",
 
     /* ---------- home ---------- */
@@ -50,8 +50,7 @@
     "home.cta1": "Parlons-en",
     "home.cta2": "Ce que nous faisons",
 
-    "fact.n1u": "ans",
-    "fact.c1": "dans les plateformes publicitaires — pas en agence",
+    "fact.c1": "points de la chaîne publicitaire où nous avons travaillé",
     "fact.c2": "de commission sur vos achats, jamais",
     "fact.c3": "du dispositif finit à votre nom",
 
@@ -83,13 +82,13 @@
     "home.exploreH2": "Par où commencer",
     "teaser.k1": "nos interventions",
     "teaser.h1": "Ce que nous faisons",
-    "teaser.p1": "Six façons d'intervenir — et ce que nous ne faisons pas.",
+    "teaser.p1": "Comment nous intervenons — et ce que nous ne faisons pas.",
     "teaser.k2": "le déroulé",
     "teaser.h2": "Comment ça se passe",
     "teaser.p2": "Quatre étapes, puis nous vous passons les clés.",
     "teaser.k3": "qui parle",
     "teaser.h3": "À propos",
-    "teaser.p3": "Huit ans à l'intérieur des plateformes.",
+    "teaser.p3": "À l'intérieur des plateformes, pas à côté.",
     "teaser.k4": "premier échange",
     "teaser.h4": "Contact",
     "teaser.p4": "Une heure, gratuite, sans argumentaire.",
@@ -98,8 +97,8 @@
     "cta.p": "Un échange suffit généralement à trancher — et si ce n'est pas notre sujet, nous vous le dirons.",
 
     /* ---------- services ---------- */
-    "svc.h1": "Six façons d'intervenir",
-    "svc.lede": "Vous n'aurez pas besoin des six. La plupart des missions commencent par une ou deux. Le terme technique figure dessous, au cas où votre prestataire l'emploie.",
+    "svc.h1": "Comment nous intervenons",
+    "svc.lede": "Vous n'aurez pas besoin de tout. La plupart des missions commencent par un ou deux volets. Le terme technique figure dessous, au cas où votre prestataire l'emploie.",
     "svc.t1": "01 — mise en place",
     "svc.h3a": "Monter votre dispositif",
     "svc.p1": "Nous choisissons les plateformes adaptées à votre budget, nous les installons et les paramétrons.",
@@ -171,9 +170,9 @@
 
     /* ---------- about ---------- */
     "ab.h1": "Nous avons travaillé dans ces plateformes avant de conseiller dessus",
-    "ab.lede": "Huit ans chez les entreprises qui les fabriquent — en support, en solutions et en ingénierie.",
+    "ab.lede": "Des postes chez les entreprises qui les fabriquent — en support, en solutions et en ingénierie.",
     "ab.pedKicker": "parcours",
-    "ab.pedH2": "Huit ans dans la salle des machines",
+    "ab.pedH2": "Du temps passé dans la salle des machines",
     "ab.figL": "fig. 2 — où se situe cette expérience",
     "ab.figR": "la chaîne que parcourt votre budget",
     "ab.figAlt": "Schéma de la chaîne publicitaire, du côté vente au côté achat, avec TripleLift côté éditeurs, PubMatic sur la place de marché, Martin DSP côté annonceurs, et Scope3 comme couche IA au-dessus",
