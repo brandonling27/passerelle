@@ -19,24 +19,70 @@ Static single-page site for Passerelle Consulting.
    - One CNAME record for `www` pointing to `<your-github-username>.github.io`
 5. Wait for DNS to propagate (minutes to ~24h), then in GitHub Pages settings check "Enforce HTTPS."
 
-## Editing the site
+## Structure
 
-Everything — copy, styling, the diagram — lives in the single `index.html` file. No build step, no dependencies. Open it directly in a browser to preview changes locally before pushing.
+Five static pages sharing one stylesheet and one script. No build step, no
+dependencies — open any page directly in a browser to preview it.
+
+```
+index.html        Landing page: the pitch, the problem in plain terms,
+                  the diagram, and links into the four sub-pages
+services.html     What we do — six services + what we don't do
+approche.html     How it works — four stages, vs. an agency, FAQ
+a-propos.html     About — background and why it matters to the client
+contact.html      Contact — email, what to expect, nothing to prepare
+assets/styles.css All styling for every page
+assets/i18n.js    Language toggle + the English dictionary
+```
+
+Because there is no templating, the header and footer markup is repeated in each
+page. If you change a nav link, change it in all five (and in the footer nav).
+Each page marks its own nav item with `aria-current="page"`, and sets
+`<body data-title-key="…">` so the script can translate the page title.
+
+## Tone
+
+The site is written for **non-technical decision-makers** — marketing directors,
+founders, comms leads — not for ad-tech engineers. When editing:
+
+- Lead with what the client experiences, not what the system does.
+- Industry terms (DSP, SSP, CMP, header bidding) don't appear in headings or body
+  copy. On `services.html` they are parked in the small "on dit aussi / also
+  called" line under each service, so a reader can match our plain description to
+  the words their current provider uses.
+- Prefer concrete outcomes ("you pay without seeing where the money goes") over
+  capability lists ("bidstream architecture review").
 
 ## Languages (FR / EN)
 
 The site ships in **French by default**, with an EN toggle in the header. The
-visitor's choice is remembered in `localStorage` under `passerelle-lang`.
+visitor's choice is remembered in `localStorage` under `passerelle-lang` and
+persists as they move between pages.
 
 - **French copy lives in the HTML itself.** Edit the markup directly; the script
   captures it on page load, so there is no second French dictionary to keep in sync.
-- **English copy lives in the `en = {…}` object** in the `<script>` at the bottom
-  of `index.html`, keyed by the `data-i18n` attribute on each element.
+- **English copy lives in the `en = {…}` object** in `assets/i18n.js`, keyed by
+  the `data-i18n` attribute on each element. One dictionary serves all five pages;
+  keys that aren't on a given page are simply unused.
 
-To add new translatable text: give the element a `data-i18n="some.key"` attribute
-(use `data-i18n-html` if the text contains markup like `<em>`, or `data-i18n-label`
-for an `aria-label`), write the French inline, and add the matching English string
-to the `en` object. Anything without a key stays identical in both languages.
+Supported attributes:
 
-Note: the labels inside the SVG diagram don't wrap — keep them under ~150px wide
-(roughly 20 characters at the current font size) so they stay inside their boxes.
+| Attribute | Translates |
+|---|---|
+| `data-i18n` | the element's text |
+| `data-i18n-html` | the element's inner HTML (copy containing `<em>`, `<br>`) |
+| `data-i18n-label` | the `aria-label` attribute |
+| `data-i18n-content` | the `content` attribute (meta description) |
+| `data-title-key` on `<body>` | that page's `<title>` |
+
+To add translatable text: give the element a `data-i18n="some.key"` attribute,
+write the French inline, and add the matching English string to the `en` object.
+Anything without a key stays identical in both languages.
+
+Two things worth checking after a copy edit:
+
+1. **Every key needs an English string.** A key missing from `en` silently leaves
+   French text on the English site.
+2. **SVG diagram labels don't wrap.** Keep them under ~150px (roughly 20
+   characters at the current size) in *both* languages, or they spill out of their
+   boxes. Everything else on the page reflows fine down to 320px.

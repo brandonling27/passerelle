@@ -3,179 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Passerelle Consulting — Conseil technique en programmatique</title>
+<title>Passerelle Consulting — Reprenez la main sur votre publicité en ligne</title>
+<meta name="description" data-i18n-content="desc.home" content="Conseil indépendant pour les marques qui veulent gérer elles-mêmes leur publicité en ligne. Nous construisons et connectons les outils, puis nous formons vos équipes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg: #F5F6F3;
-    --bg-panel: #FFFFFF;
-    --ink: #12181F;
-    --ink-soft: #4A5361;
-    --line: #D8DCD6;
-    --blue: #1E3A8A;
-    --blue-bright: #2451D1;
-    --trace: #0EA5A0;
-    --amber: #C77C22;
-    --radius: 2px;
-  }
-  *{ box-sizing: border-box; margin:0; padding:0; }
-  html{ scroll-behavior: smooth; }
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection{ background: var(--trace); color: #fff; }
-  a{ color: inherit; }
-  .mono{ font-family: 'IBM Plex Mono', monospace; }
-  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
-
-  /* Focus visibility */
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline: 2px solid var(--blue-bright); outline-offset: 3px;
-  }
-
-  header{
-    position: sticky; top:0; z-index: 50;
-    background: rgba(245,246,243,0.9);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav{ display:flex; align-items:center; justify-content:space-between; height:64px; }
-  .brand{ font-family:'Space Grotesk'; font-weight:700; font-size:19px; letter-spacing:0.01em; display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink);}
-  .brand-dot{ width:9px; height:9px; background:var(--trace); border-radius:50%; box-shadow:0 0 0 3px rgba(14,165,160,0.15);}
-  .navlinks{ display:flex; gap:36px; list-style:none; }
-  .navlinks a{ font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.04em; text-transform:uppercase; text-decoration:none; color:var(--ink-soft); transition:color .15s; }
-  .navlinks a:hover{ color:var(--blue-bright); }
-  @media (max-width:720px){ .navlinks{ display:none; } }
-
-  /* LANGUAGE TOGGLE */
-  .nav-right{ display:flex; align-items:center; gap:28px; }
-  .lang{
-    display:flex; align-items:center; border:1px solid var(--line);
-    border-radius:var(--radius); overflow:hidden; background:var(--bg-panel);
-  }
-  .lang button{
-    font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:0.06em;
-    padding:6px 11px; border:none; background:transparent; color:var(--ink-soft);
-    cursor:pointer; transition: background .15s, color .15s; line-height:1.4;
-  }
-  .lang button + button{ border-left:1px solid var(--line); }
-  .lang button:hover{ color:var(--blue-bright); }
-  .lang button[aria-pressed="true"]{ background:var(--ink); color:#fff; }
-  .lang button[aria-pressed="true"]:hover{ color:#fff; }
-
-  /* HERO */
-  .hero{ padding: 92px 0 40px; }
-  .eyebrow{
-    font-family:'IBM Plex Mono'; font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase;
-    color: var(--trace); display:flex; align-items:center; gap:10px; margin-bottom:28px;
-  }
-  .eyebrow::before{ content:''; width:24px; height:1px; background:var(--trace); }
-  h1{
-    font-family:'Space Grotesk'; font-weight:600; font-size: clamp(34px, 5.4vw, 58px);
-    line-height:1.06; letter-spacing:-0.015em; max-width: 15ch; color: var(--ink);
-  }
-  h1 em{ font-style:normal; color: var(--blue-bright); }
-  .hero-sub{ max-width:52ch; margin-top:24px; font-size:18px; color:var(--ink-soft); }
-  .hero-cta{ display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; align-items:center;}
-  .btn{
-    font-family:'IBM Plex Mono'; font-size:13px; letter-spacing:0.03em; text-transform:uppercase;
-    padding:13px 24px; border-radius:var(--radius); text-decoration:none; display:inline-block;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .btn-primary{ background:var(--ink); color:#fff; }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(18,24,31,0.22); }
-  .btn-ghost{ border:1px solid var(--line); color:var(--ink); }
-  .btn-ghost:hover{ border-color:var(--blue-bright); color:var(--blue-bright); }
-
-  /* SIGNAL DIAGRAM */
-  .diagram{ margin-top:64px; border:1px solid var(--line); background:var(--bg-panel); border-radius:var(--radius); overflow:hidden; }
-  .diagram-label{
-    font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-soft);
-    padding:14px 20px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between;
-  }
-  .diagram svg{ display:block; width:100%; height:auto; }
-  .node-label{ font-family:'IBM Plex Mono', monospace; font-size:12px; fill: var(--ink); }
-  .node-sub{ font-family:'IBM Plex Mono', monospace; font-size:9.5px; fill: var(--ink-soft); }
-  .trace-line{ stroke: var(--line); stroke-width:1.5; fill:none; }
-  .trace-active{ stroke: var(--trace); stroke-width:1.5; fill:none; stroke-dasharray: 4 4; animation: dash 22s linear infinite; }
-  @keyframes dash{ to{ stroke-dashoffset: -400; } }
-  .node-box{ fill:var(--bg); stroke:var(--line); stroke-width:1.2; }
-  .node-box.hi{ stroke: var(--blue-bright); }
-  .pulse{ fill: var(--trace); }
-
-  /* SECTIONS */
-  section{ padding: 88px 0; border-top:1px solid var(--line); }
-  .section-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:48px; gap:24px; flex-wrap:wrap; }
-  .section-num{ font-family:'IBM Plex Mono'; font-size:12px; color:var(--trace); }
-  h2{ font-family:'Space Grotesk'; font-weight:600; font-size: clamp(24px, 3vw, 32px); letter-spacing:-0.01em; }
-  .lede{ max-width:60ch; color:var(--ink-soft); font-size:17px; }
-
-  /* PEDIGREE */
-  .pedigree-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px;}
-  .ped-card{ background:var(--bg-panel); padding:26px 22px; }
-  .ped-card .co{ font-family:'Space Grotesk'; font-weight:600; font-size:17px; }
-  .ped-card .role{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--trace); margin-top:10px; }
-  .ped-card .desc{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
-  @media (max-width:820px){ .pedigree-grid{ grid-template-columns: 1fr 1fr; } }
-  @media (max-width:520px){ .pedigree-grid{ grid-template-columns: 1fr; } }
-
-  /* SERVICES */
-  .services{ display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
-  .svc{ background:var(--bg-panel); padding:32px; }
-  .svc .tag{ font-family:'IBM Plex Mono'; font-size:11px; color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.05em; }
-  .svc h3{ font-family:'Space Grotesk'; font-size:19px; font-weight:600; margin-top:10px; }
-  .svc p{ margin-top:10px; font-size:14.5px; color:var(--ink-soft); }
-  @media (max-width:720px){ .services{ grid-template-columns: 1fr; } }
-
-  /* APPROACH */
-  .approach{ display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:start; }
-  .approach-col .k{ font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:10px; }
-  .approach-col h3{ font-family:'Space Grotesk'; font-size:20px; font-weight:600; margin-bottom:12px; }
-  .approach-col p{ color:var(--ink-soft); font-size:15px; }
-  .approach-col.hi{ border-left:2px solid var(--trace); padding-left:24px; }
-  @media (max-width:720px){ .approach{ grid-template-columns:1fr; } }
-
-  /* CONTACT */
-  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:64px; }
-  .field{ margin-bottom:20px; }
-  label{ display:block; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); margin-bottom:8px; }
-  input, textarea{
-    width:100%; background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
-    padding:12px 14px; font-family:'Inter'; font-size:14.5px; color:var(--ink);
-  }
-  textarea{ resize:vertical; min-height:110px; }
-  input:focus, textarea:focus{ border-color: var(--blue-bright); outline:none; }
-  .direct{ margin-top:8px; }
-  .direct a{ color:var(--blue-bright); text-decoration:none; border-bottom:1px solid rgba(36,81,209,0.35); }
-  @media (max-width:720px){ .contact-grid{ grid-template-columns:1fr; gap:36px; } }
-
-  footer{ border-top:1px solid var(--line); padding:32px 0; }
-  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
-  .foot-row span{ font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft); }
-
-  @media (prefers-reduced-motion: reduce){
-    .trace-active{ animation:none; }
-    html{ scroll-behavior:auto; }
-  }
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
+<body data-title-key="title.home">
+
+<a class="skip" href="#main" data-i18n="a11y.skip">Aller au contenu principal</a>
 
 <header>
   <div class="wrap nav">
-    <a href="#" class="brand"><span class="brand-dot"></span>PASSERELLE CONSULTING</a>
+    <a href="index.html" class="brand"><span class="brand-dot"></span>PASSERELLE CONSULTING</a>
     <div class="nav-right">
       <ul class="navlinks">
-        <li><a href="#approach" data-i18n="nav.approach">Approche</a></li>
-        <li><a href="#services" data-i18n="nav.services">Services</a></li>
-        <li><a href="#pedigree" data-i18n="nav.pedigree">Références</a></li>
-        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Ce que nous faisons</a></li>
+        <li><a href="approche.html" data-i18n="nav.approach">Comment ça se passe</a></li>
+        <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="lang" role="group" data-i18n-label="lang.aria" aria-label="Choix de la langue">
         <button type="button" data-lang="fr" aria-pressed="true" lang="fr">FR</button>
@@ -185,300 +31,164 @@
   </div>
 </header>
 
-<main>
-  <section class="hero" style="border-top:none; padding-top:92px;">
+<main id="main">
+  <section class="hero">
     <div class="wrap">
-      <div class="eyebrow" data-i18n="hero.eyebrow">Conseil technique en programmatique · Paris &amp; New York</div>
-      <h1 data-i18n-html="hero.h1">Vos équipes média savent <em>quoi</em> acheter.<br>Nous construisons <em>comment</em> ça marche.</h1>
-      <p class="hero-sub" data-i18n="hero.sub">Conseil technique indépendant pour les marques qui internalisent leur achat programmatique — l'ingénierie sous le plan média : intégration DSP/SSP, activation des données first-party et infrastructure d'identité conforme aux exigences de confidentialité.</p>
+      <div class="eyebrow" data-i18n="home.eyebrow">Publicité en ligne · Paris &amp; New York</div>
+      <h1 data-i18n-html="home.h1">Vos équipes savent <em>quoi</em> acheter.<br>Nous construisons <em>comment</em> ça marche.</h1>
+      <p class="hero-sub" data-i18n="home.sub">La publicité en ligne repose sur une machinerie technique que presque personne ne vous explique. Nous la mettons en place, nous la connectons, nous la rendons conforme à la loi — puis nous formons vos équipes pour qu'elles s'en servent sans nous.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Démarrer la conversation</a>
-        <a href="#services" class="btn btn-ghost" data-i18n="hero.cta2">Voir le périmètre</a>
+        <a href="contact.html" class="btn btn-primary" data-i18n="home.cta1">Parlons-en</a>
+        <a href="services.html" class="btn btn-ghost" data-i18n="home.cta2">Ce que nous faisons</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono" data-i18n="home.plainKicker">en clair</div>
+          <h2 data-i18n="home.plainH2">Le problème, sans jargon</h2>
+        </div>
+        <p class="lede" data-i18n="home.plainLede">Beaucoup de marques veulent arrêter de tout déléguer à une agence. L'obstacle n'est presque jamais la stratégie — c'est la plomberie technique en dessous.</p>
+      </div>
+      <div class="plain">
+        <div class="plain-card">
+          <div class="n">01</div>
+          <h3 data-i18n="home.c1h">Vous payez sans voir où va l'argent</h3>
+          <p data-i18n="home.c1p">Entre votre budget et la publicité réellement affichée, il y a une longue chaîne d'intermédiaires. Quand vous ne contrôlez pas les outils, vous ne pouvez pas vérifier ce qui se passe au milieu.</p>
+        </div>
+        <div class="plain-card">
+          <div class="n">02</div>
+          <h3 data-i18n="home.c2h">Les outils ne se parlent pas</h3>
+          <p data-i18n="home.c2p">Vos plateformes publicitaires, votre site et vos données clients doivent être branchés correctement. Mal connectés, vous payez pour toucher des gens qui ne vous intéressent pas.</p>
+        </div>
+        <div class="plain-card">
+          <div class="n">03</div>
+          <h3 data-i18n="home.c3h">La loi a changé, pas vos réglages</h3>
+          <p data-i18n="home.c3p">Consentement, RGPD, fin des cookies publicitaires : beaucoup de dispositifs tournent encore sur des réglages qui ne sont plus conformes — et cela se règle dans les outils, pas dans une note juridique.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num mono" data-i18n="fig1.kicker">schéma</div>
+          <h2 data-i18n="fig1.h2">Où nous intervenons</h2>
+        </div>
+        <p class="lede" data-i18n="fig1.lede">Nous ne remplaçons pas votre équipe marketing et nous ne choisissons pas vos messages. Nous nous occupons de la couche technique entre vos décisions et les outils qui les exécutent.</p>
       </div>
 
       <div class="diagram">
         <div class="diagram-label">
-          <span data-i18n="fig1.left">fig. 1 — le positionnement du cabinet</span>
-          <span data-i18n="fig1.right">plan média → couche d'ingénierie → ad stack</span>
+          <span data-i18n="fig1.left">fig. 1 — notre place dans le dispositif</span>
+          <span data-i18n="fig1.right">vos décisions → la technique → les outils</span>
         </div>
-        <svg viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-label="fig1.alt" aria-label="Schéma montrant le cabinet positionné entre l'équipe marketing d'une marque et son infrastructure DSP, SSP, CMP et identité">
-          <!-- BRAND node -->
+        <svg viewBox="0 0 1040 260" xmlns="http://www.w3.org/2000/svg" role="img" data-i18n-label="fig1.alt" aria-label="Schéma : votre équipe marketing d'un côté, Passerelle au centre, et de l'autre les outils d'achat média, d'inventaire, de consentement et de données clients">
           <rect x="30" y="98" width="150" height="64" rx="2" class="node-box hi"/>
-          <text x="105" y="124" text-anchor="middle" class="node-label" data-i18n="fig1.brand">MARQUE / INTERNE</text>
+          <text x="105" y="124" text-anchor="middle" class="node-label" data-i18n="fig1.brand">VOTRE MARQUE</text>
           <text x="105" y="140" text-anchor="middle" class="node-sub" data-i18n="fig1.brandSub">équipe marketing</text>
 
-          <!-- trace to center -->
           <path d="M180,130 L 400,130" class="trace-active"/>
           <circle cx="290" cy="130" r="3" class="pulse"/>
 
-          <!-- CENTER engineering layer -->
           <rect x="400" y="70" width="240" height="120" rx="2" class="node-box hi" stroke-width="1.6"/>
           <text x="520" y="118" text-anchor="middle" class="node-label" font-weight="500">PASSERELLE</text>
-          <text x="520" y="136" text-anchor="middle" class="node-sub" data-i18n="fig1.core1">intégration · conformité</text>
-          <text x="520" y="150" text-anchor="middle" class="node-sub" data-i18n="fig1.core2">activation des données</text>
+          <text x="520" y="136" text-anchor="middle" class="node-sub" data-i18n="fig1.core1">mise en place · conformité</text>
+          <text x="520" y="150" text-anchor="middle" class="node-sub" data-i18n="fig1.core2">connexion des outils</text>
 
-          <!-- traces out to 4 nodes -->
           <path d="M640,100 L 860,40" class="trace-line"/>
           <path d="M640,120 L 860,100" class="trace-line"/>
           <path d="M640,140 L 860,160" class="trace-line"/>
           <path d="M640,160 L 860,220" class="trace-line"/>
 
           <rect x="860" y="18" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="45" text-anchor="middle" class="node-label">DSP</text>
+          <text x="935" y="45" text-anchor="middle" class="node-label" data-i18n="fig1.n1">Achat média</text>
 
           <rect x="860" y="78" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="105" text-anchor="middle" class="node-label">SSP</text>
+          <text x="935" y="105" text-anchor="middle" class="node-label" data-i18n="fig1.n2">Espaces pub</text>
 
           <rect x="860" y="138" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="165" text-anchor="middle" class="node-label" data-i18n="fig1.cmp">CMP / consentement</text>
+          <text x="935" y="165" text-anchor="middle" class="node-label" data-i18n="fig1.n3">Consentement</text>
 
           <rect x="860" y="198" width="150" height="44" rx="2" class="node-box"/>
-          <text x="935" y="225" text-anchor="middle" class="node-label" data-i18n="fig1.identity">Identité / data 1P</text>
+          <text x="935" y="225" text-anchor="middle" class="node-label" data-i18n="fig1.n4">Données clients</text>
         </svg>
+        <p class="diagram-note" data-i18n="fig1.note">En clair : votre équipe décide quoi dire et à qui. Nous nous occupons de la tuyauterie qui relie vos outils entre eux, et nous vous apprenons à la faire fonctionner.</p>
       </div>
     </div>
   </section>
 
-  <section id="pedigree">
+  <section>
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-num mono">fig. 2</div>
-          <h2 data-i18n="ped.h2">Construit côté infrastructure, pas côté slide de stratégie</h2>
+          <div class="section-num mono" data-i18n="home.exploreKicker">pour aller plus loin</div>
+          <h2 data-i18n="home.exploreH2">Par où commencer</h2>
         </div>
-        <p class="lede" data-i18n="ped.lede">Des postes d'ingénierie senior côté supply, côté demand et sur la couche publicitaire agentique du programmatique — les parties de la stack que la plupart des consultants ne connaissent que de seconde main.</p>
       </div>
-      <div class="pedigree-grid">
-        <div class="ped-card">
-          <div class="co">TripleLift</div>
-          <div class="role" data-i18n="ped.supply">Côté supply</div>
-          <div class="desc" data-i18n="ped.d1">Infrastructure supply native et vidéo, intégration côté éditeurs.</div>
-        </div>
-        <div class="ped-card">
-          <div class="co">Martin DSP</div>
-          <div class="role" data-i18n="ped.demand">Côté demand</div>
-          <div class="desc" data-i18n="ped.d2">Logique d'enchères en temps réel et ingénierie de plateforme d'achat.</div>
-        </div>
-        <div class="ped-card">
-          <div class="co">PubMatic</div>
-          <div class="role" data-i18n="ped.supply">Côté supply</div>
-          <div class="desc" data-i18n="ped.d3">Header bidding et infrastructure d'exchange à grande échelle.</div>
-        </div>
-        <div class="ped-card">
-          <div class="co">Scope3</div>
-          <div class="role" data-i18n="ped.agentic">Publicité agentique</div>
-          <div class="desc" data-i18n="ped.d4">Travail sur Interchange — l'infrastructure de la publicité agentique multiplateforme.</div>
-        </div>
+      <div class="teasers">
+        <a class="teaser" href="services.html">
+          <div class="k" data-i18n="teaser.k1">nos interventions</div>
+          <h3 data-i18n="teaser.h1">Ce que nous faisons</h3>
+          <p data-i18n="teaser.p1">Six façons d'intervenir, expliquées simplement — et la liste, tout aussi importante, de ce que nous ne faisons pas.</p>
+          <span class="go" data-i18n="teaser.go">Voir le détail →</span>
+        </a>
+        <a class="teaser" href="approche.html">
+          <div class="k" data-i18n="teaser.k2">le déroulé</div>
+          <h3 data-i18n="teaser.h2">Comment ça se passe</h3>
+          <p data-i18n="teaser.p2">Les quatre étapes d'une mission, ce qu'elle coûte en temps, et pourquoi elle se termine au lieu de s'éterniser.</p>
+          <span class="go" data-i18n="teaser.go">Voir le détail →</span>
+        </a>
+        <a class="teaser" href="a-propos.html">
+          <div class="k" data-i18n="teaser.k3">qui parle</div>
+          <h3 data-i18n="teaser.h3">À propos</h3>
+          <p data-i18n="teaser.p3">Quinze ans passés à construire les plateformes elles-mêmes, plutôt qu'à les utiliser de loin.</p>
+          <span class="go" data-i18n="teaser.go">Voir le détail →</span>
+        </a>
+        <a class="teaser" href="contact.html">
+          <div class="k" data-i18n="teaser.k4">premier échange</div>
+          <h3 data-i18n="teaser.h4">Contact</h3>
+          <p data-i18n="teaser.p4">Un premier échange sans engagement, même si vous ne savez pas encore formuler le problème.</p>
+          <span class="go" data-i18n="teaser.go">Voir le détail →</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section>
     <div class="wrap">
-      <div class="section-head">
+      <div class="cta-strip">
         <div>
-          <div class="section-num mono">fig. 3</div>
-          <h2 data-i18n="svc.h2">Périmètre d'intervention</h2>
+          <h2 data-i18n="cta.h2">Pas sûr d'avoir besoin de nous ?</h2>
+          <p data-i18n="cta.p">C'est souvent le bon moment pour en parler. Un premier échange suffit généralement à dire si le sujet nous concerne — et si ce n'est pas le cas, nous vous le dirons.</p>
         </div>
-        <p class="lede" data-i18n="svc.lede">Mobilisé lorsqu'une marque a besoin de profondeur technique — pas de gestion de campagnes, pas de création, pas de stratégie média.</p>
-      </div>
-      <div class="services">
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t1">01 — mise en place</div>
-          <h3 data-i18n="svc.h1">Stratégie programmatique &amp; mise en place technique</h3>
-          <p data-i18n="svc.p1">Choix du DSP, architecture du trading desk et implémentation initiale pour les équipes qui internalisent pour la première fois.</p>
-        </div>
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t2">02 — intégration</div>
-          <h3 data-i18n="svc.h3b">Intégration SSP/DSP</h3>
-          <p data-i18n="svc.p2">Revue de l'architecture du bidstream, configuration du header bidding et connectivité avec vos partenaires supply et demand.</p>
-        </div>
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t3">03 — conformité</div>
-          <h3 data-i18n="svc.h3c">Ingénierie de la confidentialité &amp; conformité</h3>
-          <p data-i18n="svc.p3">Mise en œuvre technique des exigences RGPD/CNIL, intégration CMP et migration vers l'identité sans cookies.</p>
-        </div>
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t4">04 — données</div>
-          <h3 data-i18n="svc.h3d">Activation des données first-party</h3>
-          <p data-i18n="svc.p4">Audit de la couche de données et intégration de vos données first-party dans votre environnement DSP.</p>
-        </div>
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t5">05 — montée en compétences</div>
-          <h3 data-i18n="svc.h3e">Montée en compétences des équipes</h3>
-          <p data-i18n="svc.p5">Formation technique structurée pour que votre équipe interne pilote la stack après la fin de la mission.</p>
-        </div>
-        <div class="svc">
-          <div class="tag" data-i18n="svc.t6">06 — conseil</div>
-          <h3 data-i18n="svc.h3f">Conseil technique continu</h3>
-          <p data-i18n="svc.p6">Revues d'architecture ponctuelles et arbitrages build-vs-buy à mesure que votre desk interne monte en charge.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="approach">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="section-num mono">fig. 4</div>
-          <h2 data-i18n="app.h2">Pourquoi ne pas simplement passer par une agence ?</h2>
-        </div>
-      </div>
-      <div class="approach">
-        <div class="approach-col">
-          <div class="k" data-i18n="app.k1">Les agences</div>
-          <h3 data-i18n="app.h3a">Regroupent stratégie et exécution</h3>
-          <p data-i18n="app.p1">Les agences full-service planifient, achètent et reportent sur le média — utile, mais la couche technique en dessous reste généralement opaque, et leur intérêt est de continuer à piloter vos campagnes, pas de vous en confier les clés.</p>
-        </div>
-        <div class="approach-col hi">
-          <div class="k">Passerelle Consulting</div>
-          <h3 data-i18n="app.h3b">Vous transmet l'infrastructure, puis s'efface</h3>
-          <p data-i18n="app.p2">Mobilisé spécifiquement pour construire la capacité technique au sein de votre équipe — intégration, conformité, activation des données — avec la montée en compétences intégrée, pour que la mission ait un terme naturel plutôt qu'un forfait qui ne se referme jamais.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="section-num mono">fig. 5</div>
-          <h2 data-i18n="con.h2">Démarrer la conversation</h2>
-        </div>
-        <p class="lede" data-i18n="con.lede">Dites-m'en un peu plus sur l'état actuel de votre dispositif programmatique.</p>
-      </div>
-      <div>
-        <p style="color:var(--ink-soft); font-size:16px; max-width:46ch;" data-i18n="con.p1">Écrivez-moi directement — je lis chaque e-mail moi-même et je réponds généralement sous 24 heures.</p>
-        <p class="direct mono" style="margin-top:16px; font-size:22px;"><a href="mailto:hello@passerelleconsulting.com">hello@passerelleconsulting.com</a></p>
-        <p style="margin-top:24px; font-size:13px; color:var(--ink-soft); max-width:46ch;" data-i18n="con.p2">Basé à Paris et New York. J'accompagne des marques en France, dans l'UE et aux États-Unis — à distance, sur site selon les besoins.</p>
+        <a href="contact.html" class="btn btn-primary" data-i18n="cta.btn">Prendre contact</a>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap foot-row">
-    <span data-i18n="foot.left">PASSERELLE CONSULTING — CONSEIL TECHNIQUE EN PROGRAMMATIQUE</span>
-    <span>PARIS, FR · NEW YORK, NY</span>
+  <div class="wrap">
+    <ul class="foot-nav">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="services.html" data-i18n="nav.services">Ce que nous faisons</a></li>
+      <li><a href="approche.html" data-i18n="nav.approach">Comment ça se passe</a></li>
+      <li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="foot-row">
+      <span data-i18n="foot.left">PASSERELLE CONSULTING — CONSEIL EN PUBLICITÉ EN LIGNE</span>
+      <span>PARIS, FR · NEW YORK, NY</span>
+    </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  // French is the default language; English is the alternate.
-  var DEFAULT_LANG = 'fr';
-
-  var en = {
-    'lang.aria': 'Language selection',
-    'nav.approach': 'Approach',
-    'nav.services': 'Services',
-    'nav.pedigree': 'Track record',
-    'nav.contact': 'Contact',
-
-    'hero.eyebrow': 'Technical programmatic consulting · Paris & New York',
-    'hero.h1': 'Your media team knows <em>what</em> to buy.<br>We build <em>how</em> it works.',
-    'hero.sub': "Independent technical consulting for brands bringing programmatic advertising in-house — the engineering underneath the media plan: DSP/SSP integration, first-party data activation, and privacy-compliant identity infrastructure.",
-    'hero.cta1': 'Start a conversation',
-    'hero.cta2': "See what's in scope",
-
-    'fig1.left': 'fig. 1 — where this practice sits',
-    'fig1.right': 'media plan → engineering layer → ad stack',
-    'fig1.alt': "Diagram showing the consultancy positioned between a brand's marketing team and its DSP, SSP, CMP, and identity infrastructure",
-    'fig1.brand': 'BRAND / IN-HOUSE',
-    'fig1.brandSub': 'marketing team',
-    'fig1.core1': 'integration · compliance',
-    'fig1.core2': 'data activation',
-    'fig1.cmp': 'CMP / privacy',
-    'fig1.identity': 'Identity / 1P data',
-
-    'ped.h2': 'Built on the infrastructure side, not the strategy deck',
-    'ped.lede': 'Senior engineering roles across the supply side, demand side, and agentic advertising layer of programmatic — the parts of the stack most consultants only reference secondhand.',
-    'ped.supply': 'Supply side',
-    'ped.demand': 'Demand side',
-    'ped.agentic': 'Agentic advertising',
-    'ped.d1': 'Native & video supply infrastructure, publisher-facing integration.',
-    'ped.d2': 'Real-time bidding logic and demand-side platform engineering.',
-    'ped.d3': 'Header bidding, exchange infrastructure at scale.',
-    'ped.d4': 'Worked on Interchange — infrastructure for agentic, cross-platform advertising.',
-
-    'svc.h2': "What's in scope",
-    'svc.lede': 'Engaged where a brand needs engineering depth — not campaign management, not creative, not media strategy.',
-    'svc.t1': '01 — setup',
-    'svc.h1': 'Programmatic strategy & technical setup',
-    'svc.p1': 'DSP selection, trading desk architecture, and initial implementation for teams building in-house capability for the first time.',
-    'svc.t2': '02 — integration',
-    'svc.h3b': 'SSP/DSP integration',
-    'svc.p2': 'Bidstream architecture review, header bidding configuration, connectivity across your supply and demand partners.',
-    'svc.t3': '03 — compliance',
-    'svc.h3c': 'Privacy & compliance engineering',
-    'svc.p3': 'Technical implementation of GDPR/CNIL requirements, CMP integration, and cookieless identity migration.',
-    'svc.t4': '04 — data',
-    'svc.h3d': 'First-party data activation',
-    'svc.p4': 'Data layer audits and integration of first-party data into your DSP environment.',
-    'svc.t5': '05 — enablement',
-    'svc.h3e': 'Team upskilling',
-    'svc.p5': 'Structured technical training so your in-house team can own the stack after the engagement ends.',
-    'svc.t6': '06 — advisory',
-    'svc.h3f': 'Ongoing technical advisory',
-    'svc.p6': 'Ad hoc architecture reviews and build-vs-buy guidance as your in-house desk scales.',
-
-    'app.h2': 'Why not just hire an agency?',
-    'app.k1': 'Agencies',
-    'app.h3a': 'Bundle strategy with execution',
-    'app.p1': 'Full-service agencies plan, buy, and report on media — useful, but the technical layer underneath is usually opaque, and their incentive is to keep running your campaigns, not to hand you the keys.',
-    'app.h3b': 'Hands you the infrastructure, then leaves',
-    'app.p2': 'Engaged specifically to build technical capability inside your team — integration, compliance, data activation — with upskilling built in, so the engagement has a natural end point instead of a retainer that never closes.',
-
-    'con.h2': 'Start a conversation',
-    'con.lede': 'Tell me a bit about where your programmatic setup stands today.',
-    'con.p1': 'Reach out directly — I read every email myself and usually respond within a day.',
-    'con.p2': 'Based in Paris and New York. Working with brands across France, the EU, and the US — remote-friendly, on-site by arrangement.',
-
-    'foot.left': 'PASSERELLE CONSULTING — TECHNICAL PROGRAMMATIC CONSULTING',
-    'doc.title': 'Passerelle Consulting — Technical Programmatic Consulting'
-  };
-
-  // French copy is authored directly in the markup; capture it on load so
-  // switching back to FR needs no second dictionary.
-  var fr = {};
-  var nodes = document.querySelectorAll('[data-i18n], [data-i18n-html], [data-i18n-label]');
-  nodes.forEach(function(el){
-    if (el.dataset.i18n) fr[el.dataset.i18n] = el.textContent;
-    if (el.dataset.i18nHtml) fr[el.dataset.i18nHtml] = el.innerHTML;
-    if (el.dataset.i18nLabel) fr[el.dataset.i18nLabel] = el.getAttribute('aria-label');
-  });
-  fr['doc.title'] = document.title;
-
-  var dicts = { fr: fr, en: en };
-  var buttons = document.querySelectorAll('.lang button');
-
-  function apply(lang){
-    var d = dicts[lang] || dicts[DEFAULT_LANG];
-    nodes.forEach(function(el){
-      var k;
-      if ((k = el.dataset.i18n) && d[k] != null) el.textContent = d[k];
-      if ((k = el.dataset.i18nHtml) && d[k] != null) el.innerHTML = d[k];
-      if ((k = el.dataset.i18nLabel) && d[k] != null) el.setAttribute('aria-label', d[k]);
-    });
-    if (d['doc.title']) document.title = d['doc.title'];
-    document.documentElement.lang = lang;
-    buttons.forEach(function(b){
-      b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
-    });
-    try { localStorage.setItem('passerelle-lang', lang); } catch(e){}
-  }
-
-  buttons.forEach(function(b){
-    b.addEventListener('click', function(){ apply(b.dataset.lang); });
-  });
-
-  var stored;
-  try { stored = localStorage.getItem('passerelle-lang'); } catch(e){}
-  if (stored && dicts[stored] && stored !== DEFAULT_LANG) apply(stored);
-})();
-</script>
-
+<script src="assets/i18n.js"></script>
 </body>
 </html>
